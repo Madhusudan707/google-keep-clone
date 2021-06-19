@@ -1,5 +1,6 @@
 import './register.module.css'
 export const Register = () => {
+  
     return (
         <div className="lg:h-screen lg:mt-0 mt-12 flex items-center justify-center w-full  ">
       <div className="h-auto lg:w-1/4 w-3/4 bg-white  rounded-lg relative text-center  lg:border lg:border-gray-300">
@@ -13,6 +14,7 @@ export const Register = () => {
               <input
                 type="email"
                 className="border py-4 lg:w-96 w-72 focus:outline-none  focus:border-blue-500"
+               
               />
               <p className="ml-1 ">Email</p>
             </label>
@@ -23,7 +25,8 @@ export const Register = () => {
               <input
                 type="password"
                 className="border py-4 lg:w-96 w-72 focus:outline-none focus:border-blue-500"
-              />
+               
+             />
               <p className="ml-1 ">Password</p>
             </label>
           </div>
@@ -32,6 +35,7 @@ export const Register = () => {
               <input
                 type="password"
                 className="border py-4 lg:w-96 w-72 focus:outline-none focus:border-blue-500"
+              
               />
               <p className="ml-1 ">Confirm Password</p>
             </label>
