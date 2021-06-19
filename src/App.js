@@ -1,4 +1,4 @@
-import { Login } from "./Components"
+import { Login} from "./Components"
 import "./App.css";
 
 const App = () => {
