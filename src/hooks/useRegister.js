@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-
 import firebase from "firebase/app";
+
 export const useRegister = (validate) => {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({
@@ -8,12 +8,8 @@ export const useRegister = (validate) => {
     password: "",
     cpassword: "",
   });
-  const [isNoError, setIsNoError] = useState(false);
-  const [firebaseServerError, setFirebaseServerError] = useState("");
 
-  useEffect(() => {
-    setIsNoError(Object.values(errors).every((error) => error === ""));
-  }, [errors]);
+  const [firebaseServerError, setFirebaseServerError] = useState("");
 
   useEffect(() => {
     setErrors(validate(values));
