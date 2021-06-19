@@ -1,23 +1,26 @@
-
 label {
-    position:relative;
-    display:inline-block;
-  }
-  p {
-    padding:10px;
-    pointer-events: none;
-    position:absolute;
-    left:0;
-    top:0;
-    transition: 0.2s;
-    transition-timing-function: ease;
-    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-    opacity:0.5;
-  }
-  
-  
-  
-  input:focus + p, input:not(span-shown) + span {
+  position: relative;
+  display: inline-block;
+}
+
+p {
+  padding: 10px;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.2s;
+  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  opacity: 0.5;
+}
+
+/* input:focus + p, input:not(span-shown) + span {
     opacity:1;
     transform: scale(0.75) translateY(-100%) translateX(-30px);
-  }
+  } */
+
+p, input:not(span-shown)+span {
+  opacity: 1;
+  transform: scale(0.75) translateY(-100%) translateX(-30px);
+}
