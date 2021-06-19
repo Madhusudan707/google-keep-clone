@@ -3,7 +3,7 @@ label {
     position:relative;
     display:inline-block;
   }
-  placeholder {
+  span {
     padding:10px;
     pointer-events: none;
     position:absolute;
@@ -17,7 +17,7 @@ label {
   
   
   
-  input:focus + placeholder, input:not(:placeholder-shown) + span {
+  input:focus + span, input:not(:span-shown) + span {
     opacity:1;
     transform: scale(0.75) translateY(-100%) translateX(-30px);
   }
