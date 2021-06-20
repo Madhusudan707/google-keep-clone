@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { useContext, createContext, useState } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 
@@ -13,43 +13,29 @@ firebase.initializeApp({
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 });
 
-const auth = firebase.auth();
+// const auth = firebase.auth();
 
-export const AuthContext = createContext();
-
-const useAuth = (auth) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1500);
-
-    const unsubscribe = auth.onAuthStateChanged((userData) =>
-      setUser(userData)
-    );
-   
-    return () => unsubscribe();
-     //Below Line remove the useEffect dependency warning
-  //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return { user, isUserLoggedIn: user ? true : false, loading };
-};
+export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-  const { user, loading, isUserLoggedIn } = useAuth(auth);
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   return (
     <AuthContext.Provider
       value={{
         user,
-        loading,
+        setUser,
+        isLoading,
+        setIsLoading,
         isUserLoggedIn,
+        setIsUserLoggedIn,
       }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
+
+export const useAuth = () => useContext(AuthContext);

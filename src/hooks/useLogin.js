@@ -1,6 +1,7 @@
 import { useState } from "react";
 import firebase from "firebase/app";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts";
 
 export const useLogin = () => {
   const navigate = useNavigate();
@@ -8,6 +9,7 @@ export const useLogin = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [firebaseServerError, setFirebaseServerError] = useState("");
+  const { setUser, setIsLoading, setIsUserLoggedIn, isLoading } = useAuth();
 
   const loginUser = async () => {
     if (!email) {
@@ -16,16 +18,31 @@ export const useLogin = () => {
       setErrorMsg("Enter Your Password to login");
     } else {
       try {
-        const user = await firebase
+        setIsLoading(true);
+        const response = await firebase
           .auth()
           .signInWithEmailAndPassword(email, password);
-
-        navigate("/home");
+        if (response) {
+          setUser(response);
+          setIsLoading(false);
+          setIsUserLoggedIn(true);
+          localStorage.setItem("isUserLoggedIn", true);
+          navigate("/home");
+        }
+        console.log(response);
       } catch (error) {
+        setIsLoading(false);
         setFirebaseServerError(error.message);
       }
     }
   };
 
-  return { loginUser, setEmail, setPassword, errorMsg, firebaseServerError };
+  return {
+    loginUser,
+    setEmail,
+    setPassword,
+    errorMsg,
+    firebaseServerError,
+    isLoading,
+  };
 };

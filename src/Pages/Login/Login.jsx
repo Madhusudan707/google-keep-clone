@@ -1,10 +1,11 @@
 import "./login.module.css";
 import { useLogin } from "../../hooks";
 import { Link } from "react-router-dom";
-
+import { useAuth } from "../../contexts";
 export const Login = () => {
   const { loginUser, setEmail, setPassword, errorMsg, firebaseServerError } =
     useLogin();
+  const { isLoading } = useAuth();
 
   return (
     <div className="lg:h-screen lg:mt-0 mt-12 flex items-center justify-center w-full  ">
@@ -56,7 +57,11 @@ export const Login = () => {
               className="text-2xl p-4 bg-blue-500 lg:w-96 w-72 text-white focus:outline-none focus:bg-gray-500"
               onClick={loginUser}
             >
-              SIGN IN
+              {isLoading ? (
+                <i className="fas fa-spinner fa-spin"></i>
+              ) : (
+                "SIGN IN"
+              )}
             </button>
           </div>
           <div className="flex justify-center  mb-8 w-full">

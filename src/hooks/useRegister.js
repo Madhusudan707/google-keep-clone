@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import firebase from "firebase/app";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts";
 
 export const useRegister = (validate) => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ export const useRegister = (validate) => {
   });
 
   const [firebaseServerError, setFirebaseServerError] = useState("");
+  const { setUser, setIsLoading, setIsUserLoggedIn, isLoading } = useAuth();
 
   useEffect(() => {
     setErrors(validate(values));
@@ -27,15 +29,31 @@ export const useRegister = (validate) => {
   };
 
   const registerUser = async () => {
+    setIsLoading(true);
     try {
-      const user = await firebase
+      setIsLoading(true);
+      const response = await firebase
         .auth()
         .createUserWithEmailAndPassword(values.email, values.password);
-      navigate("/home");
+      if (response) {
+        setUser(response);
+        setIsLoading(false);
+        setIsUserLoggedIn(true);
+        localStorage.setItem("isUserLoggedIn", true);
+        navigate("/home");
+      }
     } catch (error) {
+      setIsLoading(false);
       setFirebaseServerError(error.message);
     }
   };
 
-  return { values, errors, firebaseServerError, handleChange, registerUser };
+  return {
+    values,
+    errors,
+    firebaseServerError,
+    handleChange,
+    registerUser,
+    isLoading,
+  };
 };
