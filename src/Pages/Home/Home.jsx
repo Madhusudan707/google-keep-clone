@@ -1,3 +1,4 @@
+import { NavBar } from "../../Components";
 import { useLogout } from "../../hooks";
 
 export const Home = () => {
@@ -5,10 +6,7 @@ export const Home = () => {
 
   return (
     <div>
-      I am Home
-      <button className="p-4 bg-red-500 text-white" onClick={logout}>
-        Logout
-      </button>
+      <NavBar/>
     </div>
   );
 };
