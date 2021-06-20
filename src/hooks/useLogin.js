@@ -1,7 +1,9 @@
 import { useState } from "react";
 import firebase from "firebase/app";
+import { useNavigate } from "react-router-dom";
 
 export const useLogin = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -17,6 +19,8 @@ export const useLogin = () => {
         const user = await firebase
           .auth()
           .signInWithEmailAndPassword(email, password);
+
+        navigate("/home");
       } catch (error) {
         setFirebaseServerError(error.message);
       }

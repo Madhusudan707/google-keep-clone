@@ -1,6 +1,8 @@
 import "./register.module.css";
 import { useRegister } from "../../hooks";
 import { validate } from "../../utilis/inputValidation";
+import { Link } from "react-router-dom";
+
 export const Register = () => {
   const { values, errors, handleChange, registerUser, firebaseServerError } =
     useRegister(validate);
@@ -70,8 +72,11 @@ export const Register = () => {
             </button>
           </div>
           <div className="flex justify-center  mb-8 w-full">
-            <span className="text-1xl hover:text-blue-500 cursor-pointer">
-              Already registered? Sign in
+            <span>
+              Already registered?{" "}
+              <Link to="/" className="hover:text-blue-500">
+                Sign in
+              </Link>
             </span>
           </div>
         </div>

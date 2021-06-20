@@ -1,1 +1,1 @@
-export {AuthProvider} from './firebaseAuthContext'
+export { AuthProvider } from "./firebaseAuthContext";

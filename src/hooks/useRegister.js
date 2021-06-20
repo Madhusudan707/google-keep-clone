@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import firebase from "firebase/app";
+import { useNavigate } from "react-router-dom";
 
 export const useRegister = (validate) => {
+  const navigate = useNavigate();
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({
     email: "",
@@ -13,6 +15,7 @@ export const useRegister = (validate) => {
 
   useEffect(() => {
     setErrors(validate(values));
+    // eslint-disable-next-line
   }, [values]);
 
   const handleChange = (event) => {
@@ -28,6 +31,7 @@ export const useRegister = (validate) => {
       const user = await firebase
         .auth()
         .createUserWithEmailAndPassword(values.email, values.password);
+      navigate("/home");
     } catch (error) {
       setFirebaseServerError(error.message);
     }

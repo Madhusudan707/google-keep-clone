@@ -1,8 +1,11 @@
 import "./login.module.css";
 import { useLogin } from "../../hooks";
+import { Link } from "react-router-dom";
+
 export const Login = () => {
   const { loginUser, setEmail, setPassword, errorMsg, firebaseServerError } =
     useLogin();
+
   return (
     <div className="lg:h-screen lg:mt-0 mt-12 flex items-center justify-center w-full  ">
       <div className="h-auto lg:w-1/4 w-3/4 bg-white  rounded-lg relative text-center  lg:border lg:border-gray-300">
@@ -57,8 +60,11 @@ export const Login = () => {
             </button>
           </div>
           <div className="flex justify-center  mb-8 w-full">
-            <span className="text-1xl hover:text-blue-500 cursor-pointer">
-              Not registered? Create an account
+            <span>
+              Not registered?{" "}
+              <Link to="/register" className="hover:text-blue-500">
+                Create an account
+              </Link>
             </span>
           </div>
         </div>
