@@ -1,48 +1,44 @@
-.sidenav>ul>*{
-    display:flex;
+.sidenav>ul>* {
+    display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 999px;
     height: 3rem;
     width: 3rem;
-    cursor:pointer
+    cursor: pointer
 }
 
-.sidenav>ul>*:hover{
-    display:flex;
+.sidenav>ul>*:hover {
+    display: flex;
     /* align-items: center; */
-    justify-content:flex-start;
-    color:white;
+    justify-content: flex-start;
+    color: white;
     border-radius: 999px;
     height: 3rem;
     width: 100%;
-    cursor:pointer
+    cursor: pointer
 }
 
-.sidenav>ul>*:hover{
-    background: rgba(239, 68, 68,1);
-    
+.sidenav>ul>*:hover {
+    background: rgba(239, 68, 68, 1);
 }
 
-.sidenav>ul>li>span{
-    color:black;
-}
-.sidenav>ul>li:hover{
- color:white
+.sidenav>ul>li>span {
+    color: black;
 }
 
-
-
+.sidenav>ul>li:hover {
+    color: white
+}
 
 /* .active:active{
     background: rgba(239, 68, 68,1);
 } */
 
-.sidenav>ul{
-    width:7rem;
+.sidenav>ul {
+    width: 7rem;
 }
 
-.sidenav>ul:hover{
-    width:20rem;
+.sidenav>ul:hover {
+    width: 20rem;
 }
-
