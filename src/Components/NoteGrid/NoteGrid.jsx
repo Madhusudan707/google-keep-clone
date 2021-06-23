@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Masonry from "react-masonry-css";
+import { Footer,Select,Pin} from "../";
 
 import "./note_grid.css";
 
@@ -16,15 +16,19 @@ export const NoteGrid = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container ">
       {noteData.map((note) => {
         return (
-          <div className="text-white border item">
-            <h1>{note.title}</h1>
-            <h5>{note.note}</h5>
+          <div className="text-white border item relative note hover:border-red-500 ">
+            <Select/>
+            <Pin/>
+            <h1 className="text-center">{note.title}</h1>
+            <h5 className='mb-6 mt-4'>{note.note}</h5>
+            <Footer/>
           </div>
         );
       })}
+     
     </div>
   );
 };
