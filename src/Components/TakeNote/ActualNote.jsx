@@ -1,17 +1,64 @@
-export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote}) => {
+import {useRef,useEffect,useState} from 'react'
+import axios from 'axios'
+
+export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote,setIsEditTitle,setIsEditNote}) => {
+
+  const titleRef = useRef()
+  const noteRef = useRef()
+  const [title,setTitle] = useState("Title")
+  const [activeNote,seActiveNote]=useState(false)
+  const handleChangeTitle = (e)=>{
+   
+  
+    if(titleRef.current.innerHTML.length===0){
+      setIsEditTitle(false)
+      setTitle("Title")
+      seActiveNote(false)
+    }else{
+      seActiveNote(true)
+    }
+  }
+  const handleChangeNote = (e)=>{
+    console.log(noteRef.current.innerText)
+    if(noteRef.current.innerHTML.length===0){
+      setIsEditNote(false)
+      setIsEditTitle(false)
+    }else{
+      seActiveNote(true)
+    }
+  }
+
+  useEffect(()=>{
+  
+    (async()=>{
+      const uid = localStorage.getItem("uid")
+     
+      if(isShow && ((titleRef.current.innerText || noteRef.current.innerText) && activeNote && uid) ){
+        
+        const response =await axios.post("http://localhost:3002/notes",{
+          uid:uid,
+          title:titleRef.current.innerText,
+          note:noteRef.current.innerText
+        })
+      }
+    })()
+   
+  },[isShow])
+
     return (
         <div
-        className={`border   w-1/3 text-white rounded-sm  ${
+        className={`border   w-2/3 text-white rounded-sm  ${
           isShow ? "hide" : ""
         }`}
       >
         <div className="flex flex-row items-center justify-center   w-full">
-          <span
+          <span ref={titleRef}
             contentEditable="true"
             className="w-full focus:outline-none  text-2xl border-white px-4 py-2"
             onClick={onEditTitle}
+            onKeyUp={handleChangeTitle}
           >
-            {isEditTitle ? "" : "Title"}
+            {isEditTitle ? "" : title}
           </span>
           <ul className="flex justify-around w-12  ">
             <li>
@@ -20,10 +67,11 @@ export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote
           </ul>
         </div>
         <div className="flex flex-row items-center justify-center   w-full">
-          <span
+          <span ref={noteRef}
             contenteditable="true"
             className={`w-full focus:outline-none   border-white px-4 py-2`}
             onClick={onEditNote}
+            onKeyUp={handleChangeNote}
           >
             {isEditNote ? "" : "Take a note..."}
           </span>

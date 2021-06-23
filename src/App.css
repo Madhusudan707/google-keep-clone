@@ -1,7 +1,26 @@
 body{
-    overflow: hidden;
+    /* overflow: hidden; */
     background: #202124;
 }
 .hide{
     display:none
+}
+
+.home {
+    display: grid;
+    grid-template-areas: 
+    'navbar '
+    'body';
+    grid-template-columns: 100%;
+    /* border:2px solid red; */
+  }
+
+.navbar{
+    grid-area:navbar;
+   
+}
+.body{
+    grid-area:body;
+    /* border:2px solid red; */
+
 }

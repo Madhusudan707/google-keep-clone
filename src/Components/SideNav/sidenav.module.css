@@ -1,3 +1,17 @@
+.sidenav {
+    position: fixed;
+    top: 7.2%;
+    z-index: 10;
+}
+
+.sidenav>ul {
+    width: 5rem;
+}
+
+.sidenav>ul:hover {
+    width: 20rem;
+}
+
 .sidenav>ul>* {
     display: flex;
     align-items: center;
@@ -34,11 +48,3 @@
 /* .active:active{
     background: rgba(239, 68, 68,1);
 } */
-
-.sidenav>ul {
-    width: 7rem;
-}
-
-.sidenav>ul:hover {
-    width: 20rem;
-}

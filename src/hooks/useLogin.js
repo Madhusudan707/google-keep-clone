@@ -27,9 +27,11 @@ export const useLogin = () => {
           setIsLoading(false);
           setIsUserLoggedIn(true);
           localStorage.setItem("isUserLoggedIn", true);
+          localStorage.setItem("uid",response.user.uid)
           navigate("/home");
         }
         console.log(response);
+        console.log(response.user.uid);
       } catch (error) {
         setIsLoading(false);
         setFirebaseServerError(error.message);
