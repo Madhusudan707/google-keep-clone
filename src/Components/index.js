@@ -7,3 +7,4 @@ export { Body } from "./Body/ Body";
 export {Footer} from './Widgets/Footer'
 export {Select} from './Widgets/Select'
 export {Pin} from './Widgets/Pin'
+export {ColorPalette} from './Widgets/ColorPalette'

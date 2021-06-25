@@ -54,6 +54,7 @@ export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote
         <div className="flex flex-row items-center justify-center   w-full">
           <span ref={titleRef}
             contentEditable="true"
+            suppressContentEditableWarning={true}
             className="w-full focus:outline-none  text-2xl border-white px-4 py-2"
             onClick={onEditTitle}
             onKeyUp={handleChangeTitle}
@@ -68,7 +69,8 @@ export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote
         </div>
         <div className="flex flex-row items-center justify-center   w-full">
           <span ref={noteRef}
-            contenteditable="true"
+            contentEditable="true"
+            suppressContentEditableWarning={true}
             className={`w-full focus:outline-none   border-white px-4 py-2`}
             onClick={onEditNote}
             onKeyUp={handleChangeNote}
