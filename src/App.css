@@ -1,6 +1,6 @@
 body{
     /* overflow: hidden; */
-    background: #202124;
+    /* background: #202124; */
 }
 .hide{
     display:none
@@ -19,7 +19,7 @@ body{
     grid-area:navbar;
    
 }
-.body{
+.body,.archive{
     grid-area:body;
     /* border:2px solid red; */
 

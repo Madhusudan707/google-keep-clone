@@ -1,5 +1,8 @@
 import { ColorPalette } from "../";
-export const Footer = () => {
+import { useNotesData } from "../../hooks";
+
+export const Footer = ({noteID}) => {
+const {addNoteToArchive} = useNotesData()
   return (
     <div className='absolute bottom-1 w-full left-0 widget '>
       <ul className='text-white flex justify-around items-center w-full '>
@@ -17,7 +20,7 @@ export const Footer = () => {
           <a><i className='fa fa-image'></i></a>
         </li>
         <li>
-          <a><i className='fa fa-archive'></i></a>
+          <a onClick={()=>{addNoteToArchive(noteID)}}><i className='fa fa-archive cursor-pointer'></i></a>
         </li>
         <li>
           <a><i className='fa fa-ellipsis-v'></i></a>

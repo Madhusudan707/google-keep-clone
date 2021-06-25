@@ -2,7 +2,7 @@ import { Search } from "../";
 
 export const NavBar = () => {
   return (
-    <div className="navbar fixed w-full z-20 border-b border-gray-500 ">
+    <div className="navbar fixed w-full z-20 border-b border-gray-500 top-0 ">
       <div className="flex bg-black text-white px-4 h-16">
         <ul className="flex justify-center items-center ">
           <li>

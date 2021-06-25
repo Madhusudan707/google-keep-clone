@@ -1,12 +1,14 @@
 import {useRef,useEffect,useState} from 'react'
 import axios from 'axios'
-
+import { useNotes } from '../../contexts'
 export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote,setIsEditTitle,setIsEditNote}) => {
 
   const titleRef = useRef()
   const noteRef = useRef()
   const [title,setTitle] = useState("Title")
   const [activeNote,seActiveNote]=useState(false)
+  const {notesState,notesDispatch} = useNotes()
+
   const handleChangeTitle = (e)=>{
    
   
@@ -40,6 +42,10 @@ export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote
           title:titleRef.current.innerText,
           note:noteRef.current.innerText
         })
+        console.log(response.data)
+
+        // await notesDispatch({type:"ADD_NEW_NOTE",payload:{newNote:response.data.note}})
+
       }
     })()
    

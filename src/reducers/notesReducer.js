@@ -18,6 +18,18 @@ export const initialState = {
           notes: [],
           message: "Unable to Load Products, Try after sometime",
         };
+        case "ADD_NEW_NOTE":
+          return {
+            loading: false,
+            notes: action.payload.newNote,
+            message: "New Note Added",
+          };
+          case "ADD_NOTE_TO_ARCHIVE":
+            return {
+              loading: false,
+              notes: action.payload.archiveNote,
+              message: "Note Added To Archive",
+            };
         case "UPDATE_COLOR":
           return {
             loading: false,

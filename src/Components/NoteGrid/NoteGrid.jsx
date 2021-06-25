@@ -1,6 +1,6 @@
 import { Footer, Select, Pin, ColorPalette } from "../";
 import { useNotesData } from "../../hooks";
-import "./note_grid.css";
+import "../../styles/note_grid.css";
 
 export const NoteGrid = () => {
   const { notesState } = useNotesData();
@@ -18,7 +18,7 @@ export const NoteGrid = () => {
             <h1 className="text-center">{note.title}</h1>
             <h5 className="mb-6 mt-4">{note.note}</h5>
             <ColorPalette noteID={note._id}/>
-            <Footer />
+            <Footer noteID={note._id}/>
           </div>
         );
       })}

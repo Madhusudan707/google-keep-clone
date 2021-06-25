@@ -1,4 +1,4 @@
-import { NavBar, SideNav, Body } from "../../Components";
+import { Body } from "../../Components";
 import { useLogout } from "../../hooks";
 
 export const Home = () => {
@@ -6,8 +6,7 @@ export const Home = () => {
 
   return (
     <div className="home">
-      <NavBar />
-      <SideNav />
+    
       <Body />
     </div>
   );
