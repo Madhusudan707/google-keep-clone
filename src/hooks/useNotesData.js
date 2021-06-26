@@ -7,7 +7,7 @@ export const useNotesData = ()=>{
         useEffect(() => {
           (async () => {
             const response = await axios.get(`http://localhost:3002/notes/${uid}`);
-           
+           console.log(response)
             notesDispatch({type:"INITIAL_DATA",payload:{initialData:response.data.data}})
           })();
         }, []);
@@ -27,17 +27,26 @@ export const useNotesData = ()=>{
           
            const archiveNote = notesState.notes.map((note)=>{
              if(note._id===noteID){
-               return {...note,isArchive:!note.isArchive}
-              // console.log("yes")
+               return {...note,isArchive:!note.isArchive,isDelete:false}
              }return note
            })
 
            notesDispatch({type:"ADD_NOTE_TO_ARCHIVE",payload:{archiveNote:archiveNote}})
-           const response = await axios.post("http://localhost:3002/notes/archive",{id:noteID})
-
-           
+            await axios.post("http://localhost:3002/notes/archive",{id:noteID})
          }
+
+         const addNoteToTrash = async(noteID)=>{
+          const trashNote = notesState.notes.map((note)=>{
+            if(note._id===noteID){
+              return {...note,isDelete:!note.isDelete,isArchive:false}
+            }return note
+          })
+
+          notesDispatch({type:"ADD_NOTE_TO_TRASH",payload:{trashNote:trashNote}})
+           await axios.post("http://localhost:3002/notes/trash",{id:noteID})
+        }
+         
     return {
-        notesState,changeNoteColor,addNoteToArchive
+        notesState,changeNoteColor,addNoteToArchive,addNoteToTrash
     }
 }

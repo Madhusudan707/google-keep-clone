@@ -8,8 +8,9 @@ export const NoteGrid = () => {
   return (
     <div className="container">
       {notesState.notes.map((note) => {
-        return (
-          <div
+         if(!note.isDelete && !note.isArchive){
+           return (
+            <div
             key={note._id}
             className={`text-white border item relative note hover:border-red-500 ${note.bgColor}`}
           >
@@ -20,7 +21,8 @@ export const NoteGrid = () => {
             <ColorPalette noteID={note._id}/>
             <Footer noteID={note._id}/>
           </div>
-        );
+           )
+         }
       })}
     </div>
   );

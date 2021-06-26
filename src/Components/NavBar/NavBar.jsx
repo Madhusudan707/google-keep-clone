@@ -14,9 +14,9 @@ export const NavBar = () => {
     <div className="navbar fixed w-full z-20 border-b border-gray-500 top-0 ">
       <div className="flex bg-black text-white px-4 h-16">
         <ul className="flex justify-center items-center ">
-          <li>
+          {/* <li>
             <i className="fas fa-bars text-2xl mr-6 ml-4"></i>
-          </li>
+          </li> */}
           <li>
             <a className="flex items-center">
               <img

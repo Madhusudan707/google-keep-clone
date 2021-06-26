@@ -30,6 +30,12 @@ export const initialState = {
               notes: action.payload.archiveNote,
               message: "Note Added To Archive",
             };
+          case "ADD_NOTE_TO_TRASH":
+            return{
+              loading: false,
+              notes: action.payload.trashNote,
+              message: "Note Added To Trash",
+            }
         case "UPDATE_COLOR":
           return {
             loading: false,

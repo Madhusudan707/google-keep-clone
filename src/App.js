@@ -1,4 +1,4 @@
-import { Login, Register, Home,Archive, PrivateRoute, PageNotFound } from "./Pages";
+import { Login, Register, Home,Archive,Trash, PrivateRoute, PageNotFound } from "./Pages";
 import { NavBar,SideNav } from "./Components";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
@@ -21,6 +21,7 @@ const {isUserLoggedIn} = useAuth()
         {/* <Route path="/home" element={<Home />} /> */}
         <PrivateRoute path="/home" element={<Home />} />
         <PrivateRoute path="/archive" element={<Archive />} />
+        <PrivateRoute path="/trash" element={<Trash/>} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
