@@ -1,6 +1,6 @@
 body{
     /* overflow: hidden; */
-    /* background: #202124; */
+    background: black;
 }
 .hide{
     display:none
@@ -12,7 +12,6 @@ body{
     'navbar '
     'body';
     grid-template-columns: 100%;
-    /* border:2px solid red; */
   }
 
 .navbar{
@@ -21,6 +20,4 @@ body{
 }
 .body,.archive{
     grid-area:body;
-    /* border:2px solid red; */
-
 }

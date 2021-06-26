@@ -2,12 +2,19 @@ import { Login, Register, Home,Archive, PrivateRoute, PageNotFound } from "./Pag
 import { NavBar,SideNav } from "./Components";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import {useAuth} from './contexts'
 
 const App = () => {
+ 
+const {isUserLoggedIn} = useAuth()
+
+//  useEffect(()=>{
+//   setIsUserLoggedIn(localStorage.getItem("isUserLoggedIn"))
+//  },[])
   return (
     <div className="App">
-        <NavBar />
-      <SideNav />
+      {isUserLoggedIn  && <><NavBar /><SideNav /></>}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />

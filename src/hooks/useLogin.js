@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import firebase from "firebase/app";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts";
@@ -9,7 +9,17 @@ export const useLogin = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [firebaseServerError, setFirebaseServerError] = useState("");
-  const { setUser, setIsLoading, setIsUserLoggedIn, isLoading } = useAuth();
+  const { setUser, setIsLoading, setIsUserLoggedIn, isUserLoggedIn, isLoading } = useAuth();
+
+//    useEffect(()=>{
+//     setIsUserLoggedIn(localStorage.getItem("isUserLoggedIn"))
+//     if(isUserLoggedIn){
+//       navigate("/home");
+//       console.log("yes1")
+//     }
+    
+//  },[])
+
 
   const loginUser = async () => {
     if (!email) {

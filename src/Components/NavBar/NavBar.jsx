@@ -1,6 +1,15 @@
 import { Search } from "../";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../contexts";
 
 export const NavBar = () => {
+  const {setIsUserLoggedIn} = useAuth()
+  const logout=()=>{
+    localStorage.removeItem("isUserLoggedIn")
+    localStorage.removeItem("uid")
+    setIsUserLoggedIn(false)
+    
+  }
   return (
     <div className="navbar fixed w-full z-20 border-b border-gray-500 top-0 ">
       <div className="flex bg-black text-white px-4 h-16">
@@ -35,6 +44,9 @@ export const NavBar = () => {
           </li>
           <li>
             <i className="fas fa-user-circle fa-2x"></i>
+          </li>
+          <li>
+          <Link to="/" onClick={logout}><i className="fas fa-sign-out-alt fa-2x"></i></Link>
           </li>
         </ul>
       </div>

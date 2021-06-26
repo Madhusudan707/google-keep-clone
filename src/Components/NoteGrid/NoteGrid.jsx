@@ -6,7 +6,7 @@ export const NoteGrid = () => {
   const { notesState } = useNotesData();
 
   return (
-    <div className="container ">
+    <div className="container">
       {notesState.notes.map((note) => {
         return (
           <div

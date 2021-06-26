@@ -9,32 +9,54 @@
 }
 
 .sidenav>ul:hover {
-    width: 20rem;
+    width: 18rem;
 }
 
 .sidenav>ul>* {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border-radius: 999px;
     height: 3rem;
     width: 3rem;
     cursor: pointer
 }
 
-.sidenav>ul>*:hover {
+/* .sidenav>ul>*:hover {
     display: flex;
-    /* align-items: center; */
     justify-content: flex-start;
     color: white;
     border-radius: 999px;
     height: 3rem;
     width: 100%;
-    cursor: pointer
+    cursor: pointer;
+    padding:2rem;
+    background: #000000;
+} */
+
+.sidenav>ul>li>a>i>span{
+    opacity: 0;
+}
+.sidenav>ul>li>*:hover span{
+   opacity: 1;
+}
+.sidenav>ul>li>*:hover {
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-start;
+    color: white;
+    border-radius: 999px;
+    /* height: 3rem; */
+    width: 250px;
+    cursor: pointer;
+    /* padding:1rem; */
+    margin: 0;
+    padding: 0;
+    background: #000000;
 }
 
-.sidenav>ul>*:hover {
-    background: rgba(239, 68, 68, 1);
+.sidenav>ul>li {
+    width: 250px;
 }
 
 .sidenav>ul>li>span {
@@ -44,7 +66,3 @@
 .sidenav>ul>li:hover {
     color: white
 }
-
-/* .active:active{
-    background: rgba(239, 68, 68,1);
-} */
