@@ -7,6 +7,7 @@ export const useNotesData = (isShow)=>{
         const [isNoteChanged, setIsNoteChange] = useState(false);
         const [editTitle, setEditTitle] = useState("");
         const [editNote, setEditNote] = useState("");
+        const [editTag, setEditTag] = useState("");
         const [noteID, setNoteID] = useState("");
        
 
@@ -26,6 +27,7 @@ export const useNotesData = (isShow)=>{
                 id: noteID,
                 updatedTitle: editTitle,
                 updatedNote: editNote,
+                updatedTag:editTag
               });
               response.data.success &&  toastMsg("Note Updated Successfully")
             })();
@@ -85,6 +87,12 @@ export const useNotesData = (isShow)=>{
               setEditNote(e.target.innerText);
             }else{
               setEditNote(note.note)
+            }
+
+            if(e.target.id==="tag"){
+              setEditTag(e.target.innerText)
+            }else{
+              setEditTag(note.tag[0])
             }
             setIsNoteChange(true);
         }

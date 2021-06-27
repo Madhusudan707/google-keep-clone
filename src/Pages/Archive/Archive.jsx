@@ -5,14 +5,17 @@ import "../../styles/note_grid.css";
 export const Archive = () => {
   const { notesState } = useNotesData();
   const {isShowToast,toastMessage,toastColor} = useNotes()
-  let isArchiveCount = [];
-  notesState.notes.forEach(function (v) {
-    isArchiveCount [v.isArchive] = (isArchiveCount [v.isArchive] || 0) + 1;
-  });
+ 
+ const isArchiveTrue = notesState.notes.filter((note)=>{
+    return note.isArchive  
+  })
+
+ 
+ 
   return (
     <>
     <div className="archive container    flex items-center justify-start ">
-      {isArchiveCount.false !== notesState.notes.length?notesState.notes.map((note) => {     
+      {isArchiveTrue.length?notesState.notes.map((note) => {     
           return (
             note.isArchive &&
             <div

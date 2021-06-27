@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Footer, Select, Pin, ColorPalette,Toast } from "../";
+import { Footer, Select, Pin, ColorPalette,Toast,EmptyContent } from "../";
 import { useNotesData,useOutSideAlert } from "../../hooks";
 import {useNotes} from "../../contexts"
 import "../../styles/note_grid.css";
@@ -27,7 +27,7 @@ export const NoteGrid = () => {
           return (
             <div
               key={note._id}
-              className={`text-white border item relative note hover:border-red-500 ${note.bgColor}`}
+              className={`text-white border item relative note  ${note.bgColor}`}
             >
               <Select />
               <Pin />
@@ -55,8 +55,11 @@ export const NoteGrid = () => {
                 >
                   {note.note}
                 </h5>
+                <span id="tag"  className='border p-1 rounded-lg text-sm text-black  bg-white' contentEditable="true"
+                  suppressContentEditableWarning={true} onKeyUp={(e)=>{updateNote(note,e)}} >{note.tag[0]}</span>
               </span>
-              <ColorPalette noteID={note._id} />
+              <br/> <br/>
+              {/* <ColorPalette noteID={note._id} /> */}
               <Footer noteID={note._id} />
             </div>
           );

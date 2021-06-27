@@ -13,15 +13,13 @@ export const Trash = () => {
   const { notesState } = useNotesData();
   const { isShowToast, toastMessage, toastColor } = useNotes();
 
-  let isDeleteCount = [];
-  notesState.notes.forEach(function (v) {
-    isDeleteCount[v.isDelete] = (isDeleteCount[v.isDelete] || 0) + 1;
-  });
-
+  const isTrashTrue = notesState.notes.filter((note)=>{
+    return note.isDelete  
+  })
   return (
     <>
       <div className="body container    flex items-center justify-start ">
-        {isDeleteCount.false !== notesState.notes.length ? (
+        {isTrashTrue.length? (
           notesState.notes.map((note) => {
             return (
               note.isDelete && (
