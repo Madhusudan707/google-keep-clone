@@ -1,15 +1,16 @@
 import {useRef,useEffect,useState} from 'react'
 import axios from 'axios'
-import { useNotes } from '../../contexts'
+import { useNotesData } from '../../hooks'
 export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote,setIsEditTitle,setIsEditNote}) => {
 
   const titleRef = useRef()
   const noteRef = useRef()
   const [title,setTitle] = useState("Title")
   const [activeNote,seActiveNote]=useState(false)
-  const {notesState,notesDispatch} = useNotes()
+  const {toastMsg} = useNotesData()
+  
 
-  const handleChangeTitle = (e)=>{
+  const handleChangeTitle = ()=>{
    
   
     if(titleRef.current.innerHTML.length===0){
@@ -20,7 +21,7 @@ export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote
       seActiveNote(true)
     }
   }
-  const handleChangeNote = (e)=>{
+  const handleChangeNote = ()=>{
     console.log(noteRef.current.innerText)
     if(noteRef.current.innerHTML.length===0){
       setIsEditNote(false)
@@ -34,6 +35,7 @@ export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote
   
     (async()=>{
       const uid = localStorage.getItem("uid")
+      
      
       if(isShow && ((titleRef.current.innerText || noteRef.current.innerText) && activeNote && uid) ){
         
@@ -42,9 +44,9 @@ export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote
           title:titleRef.current.innerText,
           note:noteRef.current.innerText
         })
-        console.log(response.data)
-
-        // await notesDispatch({type:"ADD_NEW_NOTE",payload:{newNote:response.data.note}})
+        console.log("x",response.data.success)
+        response.data.success &&  toastMsg("Note Added Successfully")
+       
 
       }
     })()

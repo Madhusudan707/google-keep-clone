@@ -2,7 +2,7 @@ import { ColorPalette } from "../";
 import { useNotesData } from "../../hooks";
 import {Link} from "react-router-dom"
 
-export const Footer = ({noteID}) => {
+export const Footer = ({noteID,msg}) => {
 const {addNoteToArchive,addNoteToTrash} = useNotesData()
   return (
     <div className='absolute bottom-1 w-full left-0 widget '>
@@ -24,9 +24,9 @@ const {addNoteToArchive,addNoteToTrash} = useNotesData()
           <Link to="">  <i className="fas fa-pen   "></i></Link>
         </li>
         <li>
-          <Link to="" onClick={()=>{addNoteToArchive(noteID)}}><i className='fa fa-archive cursor-pointer'></i></Link>
+          <Link to="" onClick={()=>{addNoteToArchive(noteID,msg)}}><i className='fa fa-archive cursor-pointer'></i></Link>
         </li>
-        <li><Link to="" onClick={()=>{addNoteToTrash(noteID)}}><i className="far fa-trash-alt"></i></Link></li>
+        <li><Link to="" onClick={()=>{addNoteToTrash(noteID,msg)}}><i className="far fa-trash-alt"></i></Link></li>
         {/* <li>
           <Link to=""><i className='fa fa-ellipsis-v'></i></Link>
         </li> */}

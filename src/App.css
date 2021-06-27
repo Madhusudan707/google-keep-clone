@@ -19,5 +19,7 @@ body{
    
 }
 .body,.archive{
+    width: 92%;
     grid-area:body;
+    margin-left:8%;
 }

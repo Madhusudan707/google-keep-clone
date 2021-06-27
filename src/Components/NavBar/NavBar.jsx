@@ -18,14 +18,14 @@ export const NavBar = () => {
             <i className="fas fa-bars text-2xl mr-6 ml-4"></i>
           </li> */}
           <li>
-            <a className="flex items-center">
+            <Link to="" className="flex items-center">
               <img
                 src="/images/keep.png"
                 className="w-10 h-10 mr-1"
                 alt="logo"
               />
               <span>Keep</span>
-            </a>
+            </Link>
           </li>
         </ul>
         <Search />

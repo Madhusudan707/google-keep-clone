@@ -1,7 +1,7 @@
-import { useContext, createContext, useState, useEffect } from "react";
+import { useContext, createContext, useState} from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
-import { useNavigate } from "react-router-dom";
+
 
 firebase.initializeApp({
   apiKey: process.env.REACT_APP_API_KEY,
@@ -14,7 +14,7 @@ firebase.initializeApp({
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 });
 
-// const auth = firebase.auth();
+
 
 export const AuthContext = createContext({});
 
@@ -22,19 +22,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  const navigate = useNavigate();
 
-//   useEffect(()=>{
-//     setIsUserLoggedIn(localStorage.getItem("isUserLoggedIn"))
-    
-//     if(localStorage.getItem("isUserLoggedIn")){
-//       navigate("/");
-      
-//     }else{
-//       navigate("/login");
-//     }
-    
-//  },[])
+
 
   return (
     <AuthContext.Provider

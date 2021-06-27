@@ -10,7 +10,7 @@ export const useLogin = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [firebaseServerError, setFirebaseServerError] = useState("");
-  const { setUser, setIsLoading, setIsUserLoggedIn, isUserLoggedIn, isLoading } = useAuth();
+  const { setUser, setIsLoading, setIsUserLoggedIn,isLoading } = useAuth();
 
 //    useEffect(()=>{
 //     setIsUserLoggedIn(localStorage.getItem("isUserLoggedIn"))
@@ -31,7 +31,7 @@ useEffect(()=>{
         navigate("/login");
       }
       
-   },[])
+   },[navigate,setIsUserLoggedIn,state])
 
 
   const loginUser = async () => {
