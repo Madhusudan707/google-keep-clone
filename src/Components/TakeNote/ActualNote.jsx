@@ -5,6 +5,7 @@ export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote
 
   const titleRef = useRef()
   const noteRef = useRef()
+  const tagRef = useRef()
   const [title,setTitle] = useState("Title")
   const [activeNote,seActiveNote]=useState(false)
   const {toastMsg} = useNotesData()
@@ -22,7 +23,6 @@ export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote
     }
   }
   const handleChangeNote = ()=>{
-    console.log(noteRef.current.innerText)
     if(noteRef.current.innerHTML.length===0){
       setIsEditNote(false)
       setIsEditTitle(false)
@@ -30,6 +30,8 @@ export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote
       seActiveNote(true)
     }
   }
+
+ 
 
   useEffect(()=>{
   
@@ -44,7 +46,7 @@ export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote
           title:titleRef.current.innerText,
           note:noteRef.current.innerText
         })
-        console.log("x",response.data.success)
+        
         response.data.success &&  toastMsg("Note Added Successfully")
        
 
@@ -85,6 +87,16 @@ export const ActualNote = ({isShow,isEditTitle,isEditNote,onEditTitle,onEditNote
           >
             {isEditNote ? "" : "Take a note..."}
           </span>
+        </div>
+        <div className="flex flex-col  justify-start  w-full">
+       
+        <br/>
+        <input ref={tagRef} className='text-black w-36 ml-4 text-center focus:outline-none border' list="tag" name="tag" id="tag" placeholder='Add Tag' />
+            <datalist id="tag">
+             
+            </datalist>
+      
+      
         </div>
         <div className=" flex  w-full mt-4 ">
           <ul className="flex justify-around  w-96">

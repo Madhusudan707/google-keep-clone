@@ -6,6 +6,7 @@ import { ActualNote } from "./ActualNote";
 export const TakeNote = () => {
   const [isEditTitle, setIsEditTitle] = useState(false);
   const [isEditNote, setIsEditNote] = useState(false);
+  
   const wrapperRef = useRef(null);
   const { isShow, setIsShow } = useOutSideAlert(wrapperRef);
 
