@@ -1,15 +1,18 @@
 import { useNotesData } from "../../hooks";
 import {useNotes} from "../../contexts"
-import { Footer, Select, Pin, ColorPalette,Toast } from "../../Components";
+import { Footer, Select, Pin, ColorPalette,Toast,EmptyContent } from "../../Components";
 import "../../styles/note_grid.css";
 export const Archive = () => {
   const { notesState } = useNotesData();
   const {isShowToast,toastMessage,toastColor} = useNotes()
-
+  let isArchiveCount = [];
+  notesState.notes.forEach(function (v) {
+    isArchiveCount [v.isArchive] = (isArchiveCount [v.isArchive] || 0) + 1;
+  });
   return (
     <>
     <div className="archive container    flex items-center justify-start ">
-      {notesState.notes.map((note) => {     
+      {isArchiveCount.false !== notesState.notes.length?notesState.notes.map((note) => {     
           return (
             note.isArchive &&
             <div
@@ -26,7 +29,7 @@ export const Archive = () => {
           );
         
        
-      })}
+      }):<EmptyContent message="Archive is Empty"/>}
     </div>
     {isShowToast && <Toast message={toastMessage} color={toastColor}/>}
     </>

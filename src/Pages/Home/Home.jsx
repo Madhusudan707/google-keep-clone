@@ -1,4 +1,4 @@
-import { Body } from "../../Components";
+import { Body} from "../../Components";
 
 export const Home = () => {
   return (
