@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import axios from "axios";
 import { useNotesData } from "../../hooks";
+import { useNotes } from "../../contexts";
 export const ActualNote = ({
   isShow,
   isEditTitle,
@@ -16,6 +17,7 @@ export const ActualNote = ({
   const [title, setTitle] = useState("Title");
   const [activeNote, seActiveNote] = useState(false);
   const { toastMsg } = useNotesData();
+  const {notesDispatch} = useNotes()
 
   const handleChangeTitle = () => {
     if (titleRef.current.innerHTML.length === 0) {
@@ -51,8 +53,10 @@ export const ActualNote = ({
           note: noteRef.current.innerText,
           tag:tagRef.current.value  ||  titleRef.current.innerText
         });
-
-        response.data.success && toastMsg("Note Added Successfully");
+   
+          notesDispatch({type:"ADD_NEW_NOTE",payload:{newNote:response.data.note}})
+         
+          response.data.success && toastMsg("Note Added Successfully");
       }
     })();
   }, [isShow]);

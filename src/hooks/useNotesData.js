@@ -29,6 +29,12 @@ export const useNotesData = (isShow)=>{
                 updatedNote: editNote,
                 updatedTag:editTag
               });
+             const updatedNotes=notesState.notes.map((note)=>{
+                if(note._id===noteID){
+                  return {...note,title:editTitle,note:editNote,tag:[editTag]}
+                }return note
+              })
+              notesDispatch({type:"UPDATE_NOTE",payload:{updateNotes:updatedNotes}})
               response.data.success &&  toastMsg("Note Updated Successfully")
             })();
           }
@@ -97,6 +103,13 @@ export const useNotesData = (isShow)=>{
             setIsNoteChange(true);
         }
 
+        const pinnedNote = async(noteID)=>{
+         
+          const response = await axios.post(`http://localhost:3002/notes/pinned/${noteID}`)
+         
+          response.data.success &&  toastMsg("Note Pinned Successfully")
+        }
+
         const toastMsg = (toastMsg,color)=>{
          
           if(color==="delete"){
@@ -111,8 +124,10 @@ export const useNotesData = (isShow)=>{
           },2000)
           
         }
+
+       
          
     return {
-        notesState,changeNoteColor,addNoteToArchive,addNoteToTrash,updateNote,toastMsg
+        notesState,changeNoteColor,addNoteToArchive,addNoteToTrash,updateNote,pinnedNote,toastMsg
     }
 }

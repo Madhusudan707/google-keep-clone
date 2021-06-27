@@ -19,11 +19,13 @@ export const initialState = {
           message: "Unable to Load Products, Try after sometime",
         };
         case "ADD_NEW_NOTE":
+         console.log(state.notes)
           return {
             loading: false,
-            notes: action.payload.newNote,
+            notes:[...state.notes, action.payload.newNote],
             message: "New Note Added",
           };
+          break;
           case "ADD_NOTE_TO_ARCHIVE":
             return {
               loading: false,
@@ -42,6 +44,23 @@ export const initialState = {
             notes: action.payload.updateColor,
             message: "Notes BG Color Updated",
           };
+        case "UPDATE_NOTE":
+        
+          return{
+            loading:false,
+            notes:action.payload.updateNotes,
+            message:"Notes Updated"
+          }
+          break;
+
+
+        
+        case "ADD_PINNED_NOTE":
+          return{
+            loading:false,
+            notes:action.payload.pinnedNotes,
+            message:"Notes Updated"
+          }
 
       case "RESET":
         return {

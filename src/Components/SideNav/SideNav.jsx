@@ -8,7 +8,7 @@ export const SideNav = () => {
     setActive(!active);
   };
   return (
-    <div className={style.sidenav}>
+    <div className={`${style.sidenav}`}>
       <ul className="flex flex-col h-screen bg-white text-black text-2xl p-4">
         <li onClick={test} className={style[`${active ? "active" : ""}`]}>
           <Link to="/">
