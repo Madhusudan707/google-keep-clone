@@ -9,9 +9,9 @@ export const SideNav = () => {
   };
   return (
     <div className={style.sidenav}>
-      <ul className="flex flex-col h-screen bg-white text-black text-2xl p-4 shadow-2xl">
+      <ul className="flex flex-col h-screen bg-white text-black text-2xl p-4">
         <li onClick={test} className={style[`${active ? "active" : ""}`]}>
-          <Link to="/home">
+          <Link to="/">
             <i className="far fa-lightbulb p-4 ">
               <span className="ml-10 text-white">Notes</span>
             </i>
@@ -24,7 +24,7 @@ export const SideNav = () => {
             </i>
           </Link>
         </li>
-        <li onClick={test} className={style[`${active ? "active" : ""}`]}>
+        <li onClick={test} className={style[`${active ? "active" : ""} `]}>
           <Link to="">
             <i className="fas fa-pen  p-4 ">
               <span className="ml-10 text-white">Edit Labels</span>

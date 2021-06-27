@@ -24,17 +24,17 @@ export const AuthProvider = ({ children }) => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    setIsUserLoggedIn(localStorage.getItem("isUserLoggedIn"))
+//   useEffect(()=>{
+//     setIsUserLoggedIn(localStorage.getItem("isUserLoggedIn"))
     
-    if(localStorage.getItem("isUserLoggedIn")){
-      navigate("/home");
-      console.log("yes1")
-    }else{
-      navigate("/");
-    }
+//     if(localStorage.getItem("isUserLoggedIn")){
+//       navigate("/");
+      
+//     }else{
+//       navigate("/login");
+//     }
     
- },[])
+//  },[])
 
   return (
     <AuthContext.Provider

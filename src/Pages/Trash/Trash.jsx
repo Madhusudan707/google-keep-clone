@@ -3,8 +3,7 @@ import { Footer, Select, Pin, ColorPalette } from "../../Components";
 import "../../styles/note_grid.css";
 export const Trash = () => {
   const { notesState } = useNotesData();
- 
-
+console.log("trash")
   return (
     <div className="body container    flex items-center justify-start ">
       {notesState.notes.map((note) => {

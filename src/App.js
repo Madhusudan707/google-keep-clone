@@ -16,10 +16,10 @@ const {isUserLoggedIn} = useAuth()
     <div className="App">
       {isUserLoggedIn  && <><NavBar /><SideNav /></>}
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         {/* <Route path="/home" element={<Home />} /> */}
-        <PrivateRoute path="/home" element={<Home />} />
+        <PrivateRoute path="/" element={<Home />} />
         <PrivateRoute path="/archive" element={<Archive />} />
         <PrivateRoute path="/trash" element={<Trash/>} />
         <Route path="*" element={<PageNotFound />} />

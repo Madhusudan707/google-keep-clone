@@ -1,10 +1,11 @@
 import { useState,useEffect } from "react";
 import firebase from "firebase/app";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { useAuth } from "../contexts";
 
 export const useLogin = () => {
   const navigate = useNavigate();
+  const { state } = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -19,6 +20,18 @@ export const useLogin = () => {
 //     }
     
 //  },[])
+
+useEffect(()=>{
+      setIsUserLoggedIn(localStorage.getItem("isUserLoggedIn"))
+      
+      if(localStorage.getItem("isUserLoggedIn")){
+        navigate(state?.from ? state.from : "/", { replace: true });
+        
+      }else{
+        navigate("/login");
+      }
+      
+   },[])
 
 
   const loginUser = async () => {
@@ -38,7 +51,8 @@ export const useLogin = () => {
           setIsUserLoggedIn(true);
           localStorage.setItem("isUserLoggedIn", true);
           localStorage.setItem("uid",response.user.uid)
-          navigate("/home");
+         
+         
         }
         console.log(response);
         console.log(response.user.uid);

@@ -40,7 +40,7 @@ export const useRegister = (validate) => {
         setIsLoading(false);
         setIsUserLoggedIn(true);
         localStorage.setItem("isUserLoggedIn", true);
-        navigate("/home");
+        navigate("/");
       }
     } catch (error) {
       setIsLoading(false);

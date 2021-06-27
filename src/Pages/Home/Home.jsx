@@ -1,8 +1,8 @@
 import { Body } from "../../Components";
-import { useLogout } from "../../hooks";
+
 
 export const Home = () => {
-  const { logout } = useLogout();
+  console.log("Home")
 
   return (
     <div className="home">

@@ -2,7 +2,11 @@ import "./login.module.css";
 import { useLogin } from "../../hooks";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts";
+import { useLocation } from "react-router-dom";
+
+
 export const Login = () => {
+  const { state } = useLocation();
   const { loginUser, setEmail, setPassword, errorMsg, firebaseServerError } =
     useLogin();
   const { isLoading } = useAuth();

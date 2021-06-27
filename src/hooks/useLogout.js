@@ -5,7 +5,7 @@ export const useLogout = () => {
 
   const logout = () => {
     localStorage.removeItem("isUserLoggedIn");
-    navigate("/");
+    navigate("/login");
   };
 
   return { logout };

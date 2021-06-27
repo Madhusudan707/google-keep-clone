@@ -11,8 +11,8 @@ export const NavBar = () => {
     
   }
   return (
-    <div className="navbar fixed w-full z-20 border-b border-gray-500 top-0 ">
-      <div className="flex bg-black text-white px-4 h-16">
+    <div className="navbar fixed w-full z-20 border-b top-0 ">
+      <div className="flex bg-white text-black px-4 h-16">
         <ul className="flex justify-center items-center ">
           {/* <li>
             <i className="fas fa-bars text-2xl mr-6 ml-4"></i>
