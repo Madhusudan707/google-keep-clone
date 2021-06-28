@@ -10,16 +10,16 @@ import {
 } from "../../Components";
 import "../../styles/note_grid.css";
 export const Trash = () => {
-  const { notesState,pinNote } = useNotesData();
+  const { notesState, pinNote } = useNotesData();
   const { isShowToast, toastMessage, toastColor } = useNotes();
 
-  const isTrashTrue = notesState.notes.filter((note)=>{
-    return note.isDelete  
-  })
+  const isTrashTrue = notesState.notes.filter((note) => {
+    return note.isDelete;
+  });
   return (
     <>
       <div className="body container    flex items-center justify-start ">
-        {isTrashTrue.length? (
+        {isTrashTrue.length ? (
           notesState.notes.map((note) => {
             return (
               note.isDelete && (
@@ -28,7 +28,11 @@ export const Trash = () => {
                   className={`text-white border item  relative note hover:border-red-500 ${note.bgColor}`}
                 >
                   <Select />
-                  <Pin onClick={()=>{pinNote(note._id)}} />
+                  <Pin
+                    onClick={() => {
+                      pinNote(note._id);
+                    }}
+                  />
                   <h1 className="text-center">{note.title}</h1>
                   <h5 className="mb-6 mt-4">{note.note}</h5>
                   <ColorPalette noteID={note._id} />

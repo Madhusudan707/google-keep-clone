@@ -60,10 +60,10 @@ export const notesReducer = (state, action) => {
 
     case "ON_SEARCH":
       return {
-        loading:false,
-        notes:action.payload.searchedNotes,
-        message:"Search Result"
-      }
+        loading: false,
+        notes: action.payload.searchedNotes,
+        message: "Search Result",
+      };
 
     case "RESET":
       return {

@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import axios from "axios";
 import { useNotesData } from "../../hooks";
 import { useNotes } from "../../contexts";
-import {Footer} from "../"
+import { Footer } from "../";
 export const ActualNote = ({
   isShow,
   isEditTitle,
@@ -18,7 +18,7 @@ export const ActualNote = ({
   const [title, setTitle] = useState("Title");
   const [activeNote, seActiveNote] = useState(false);
   const { toastMsg } = useNotesData();
-  const {notesDispatch} = useNotes()
+  const { notesDispatch } = useNotes();
 
   const handleChangeTitle = () => {
     if (titleRef.current.innerHTML.length === 0) {
@@ -52,12 +52,15 @@ export const ActualNote = ({
           uid: uid,
           title: titleRef.current.innerText,
           note: noteRef.current.innerText,
-          tag:tagRef.current.value  ||  titleRef.current.innerText
+          tag: tagRef.current.value || titleRef.current.innerText,
         });
-   
-          notesDispatch({type:"ADD_NEW_NOTE",payload:{newNote:response.data.note}})
-         
-          response.data.success && toastMsg("Note Added Successfully");
+
+        notesDispatch({
+          type: "ADD_NEW_NOTE",
+          payload: { newNote: response.data.note },
+        });
+
+        response.data.success && toastMsg("Note Added Successfully");
       }
     })();
   }, [isShow]);
@@ -79,11 +82,6 @@ export const ActualNote = ({
         >
           {isEditTitle ? "" : title}
         </span>
-        <ul className="flex justify-around w-12 hidden ">
-          <li>
-            <i className="fas fa-thumbtack   "></i>
-          </li>
-        </ul>
       </div>
       <div className="flex flex-row items-center justify-center   w-full">
         <span
@@ -97,8 +95,7 @@ export const ActualNote = ({
           {isEditNote ? "" : "Take a note..."}
         </span>
       </div>
-      <div className="flex mt-8  justify-start  w-full relative">
-        <br />
+      <div className="flex mt-8  justify-start  w-full relative pb-4">
         <input
           ref={tagRef}
           className="text-black w-36 ml-4 text-center focus:outline-none border"
@@ -108,39 +105,9 @@ export const ActualNote = ({
           placeholder="Add Tag"
         />
         <datalist id="tag"></datalist>
-        <span className="text-sm absolute right-10 bottom-0">Click Outside to save your note.</span>
-      </div>
-      <div className=" flex  w-96 mt-4 justify-end ">
-     
-        <ul className="hidden justify-around  w-96">
-          <li>
-            <i className="far fa-bell"></i>
-          </li>
-          <li>
-            <i className="fas fa-user-plus"></i>
-          </li>
-          <li>
-            <i className="fas fa-palette"></i>
-          </li>
-          <li>
-            <i className="far fa-image"></i>
-          </li>
-          <li>
-            <i className="fas fa-archive"></i>
-          </li>
-          <li>
-            <i className="fas fa-ellipsis-v"></i>
-          </li>
-          <li>
-            <i className="fas fa-undo"></i>
-          </li>
-          <li>
-            <i className="fas fa-redo"></i>
-          </li>
-        </ul>
-        <div className=" justify-end items-end w-1/3 px-4 hidden">
-          <button>Close</button>
-        </div>
+        <span className="text-sm absolute right-10 bottom-4">
+          Click Outside to save your note.
+        </span>
       </div>
     </div>
   );

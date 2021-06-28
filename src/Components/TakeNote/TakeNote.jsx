@@ -6,7 +6,7 @@ import { ActualNote } from "./ActualNote";
 export const TakeNote = () => {
   const [isEditTitle, setIsEditTitle] = useState(false);
   const [isEditNote, setIsEditNote] = useState(false);
-  
+
   const wrapperRef = useRef(null);
   const { isShow, setIsShow } = useOutSideAlert(wrapperRef);
 
@@ -26,7 +26,11 @@ export const TakeNote = () => {
   }, [isShow]);
 
   return (
-    <div className="flex w-1/4 justify-center mt-16" ref={wrapperRef} style={{width:"500px"}}>
+    <div
+      className="flex w-1/4 justify-center mt-16"
+      ref={wrapperRef}
+      style={{ width: "500px" }}
+    >
       <StaticNote isShow={isShow} onClick={handleSwap} />
       <ActualNote
         isShow={isShow}

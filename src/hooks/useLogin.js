@@ -1,6 +1,6 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import firebase from "firebase/app";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts";
 
 export const useLogin = () => {
@@ -10,29 +10,17 @@ export const useLogin = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [firebaseServerError, setFirebaseServerError] = useState("");
-  const { setUser, setIsLoading, setIsUserLoggedIn,isLoading } = useAuth();
+  const { setUser, setIsLoading, setIsUserLoggedIn, isLoading } = useAuth();
 
-//    useEffect(()=>{
-//     setIsUserLoggedIn(localStorage.getItem("isUserLoggedIn"))
-//     if(isUserLoggedIn){
-//       navigate("/home");
-//       console.log("yes1")
-//     }
-    
-//  },[])
+  useEffect(() => {
+    setIsUserLoggedIn(localStorage.getItem("isUserLoggedIn"));
 
-useEffect(()=>{
-      setIsUserLoggedIn(localStorage.getItem("isUserLoggedIn"))
-      
-      if(localStorage.getItem("isUserLoggedIn")){
-        navigate(state?.from ? state.from : "/", { replace: true });
-        
-      }else{
-        navigate("/login");
-      }
-      
-   },[navigate,setIsUserLoggedIn,state])
-
+    if (localStorage.getItem("isUserLoggedIn")) {
+      navigate(state?.from ? state.from : "/", { replace: true });
+    } else {
+      navigate("/login");
+    }
+  }, [navigate, setIsUserLoggedIn, state]);
 
   const loginUser = async () => {
     if (!email) {
@@ -50,9 +38,7 @@ useEffect(()=>{
           setIsLoading(false);
           setIsUserLoggedIn(true);
           localStorage.setItem("isUserLoggedIn", true);
-          localStorage.setItem("uid",response.user.uid)
-         
-         
+          localStorage.setItem("uid", response.user.uid);
         }
         console.log(response);
         console.log(response.user.uid);

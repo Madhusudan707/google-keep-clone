@@ -1,14 +1,10 @@
 import { Search } from "../";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../contexts";
+import { useLogout } from "../../hooks";
 
 export const NavBar = () => {
-  const { setIsUserLoggedIn } = useAuth();
-  const logout = () => {
-    localStorage.removeItem("isUserLoggedIn");
-    localStorage.removeItem("uid");
-    setIsUserLoggedIn(false);
-  };
+  
+  const { logout } = useLogout();
   return (
     <div className="navbar fixed w-full z-20 border-b top-0 ">
       <div className="flex bg-white text-black px-4 h-16 w-full border ">
@@ -19,7 +15,6 @@ export const NavBar = () => {
               <span className="text-2xl ">Notes</span>
             </Link>
           </li>
-
           <li>
             <Link to="/archive">
               <span className="text-2xl ">Archive</span>

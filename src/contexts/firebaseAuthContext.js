@@ -1,7 +1,6 @@
-import { useContext, createContext, useState} from "react";
+import { useContext, createContext, useState } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
-
 
 firebase.initializeApp({
   apiKey: process.env.REACT_APP_API_KEY,
@@ -14,16 +13,12 @@ firebase.initializeApp({
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 });
 
-
-
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-
-
 
   return (
     <AuthContext.Provider

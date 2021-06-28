@@ -13,8 +13,7 @@ export const Search = () => {
           onChange={(e) => {
             search(e.target.value);
           }}
-
-          style={{background:"#343F56"}}
+          style={{ background: "#343F56" }}
         />
       </div>
     </div>

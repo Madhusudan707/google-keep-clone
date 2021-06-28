@@ -2,12 +2,12 @@ import "./register.module.css";
 import { useRegister } from "../../hooks";
 import { validate } from "../../utilis/inputValidation";
 import { Link } from "react-router-dom";
-import {useAuth} from "../../contexts"
+import { useAuth } from "../../contexts";
 
 export const Register = () => {
   const { values, errors, handleChange, registerUser, firebaseServerError } =
     useRegister(validate);
-    const {isLoading} = useAuth()
+  const { isLoading } = useAuth();
   return (
     <div className="lg:h-screen lg:mt-0 mt-12 flex items-center justify-center w-full  ">
       <div className="h-auto lg:w-1/4 w-3/4 bg-white  rounded-lg relative text-center  lg:border lg:border-gray-300">
@@ -70,7 +70,11 @@ export const Register = () => {
               className="text-2xl p-4 bg-blue-500 lg:w-96 w-72 text-white focus:outline-none focus:bg-gray-500"
               onClick={registerUser}
             >
-               {isLoading ? <i className="fas fa-spinner fa-spin"></i>: "SIGN UP"}
+              {isLoading ? (
+                <i className="fas fa-spinner fa-spin"></i>
+              ) : (
+                "SIGN UP"
+              )}
             </button>
           </div>
           <div className="flex justify-center  mb-8 w-full">
