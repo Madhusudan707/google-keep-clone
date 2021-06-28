@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import axios from "axios";
 import { useNotesData } from "../../hooks";
 import { useNotes } from "../../contexts";
+import {Footer} from "../"
 export const ActualNote = ({
   isShow,
   isEditTitle,
@@ -63,7 +64,7 @@ export const ActualNote = ({
 
   return (
     <div
-      className={`border   w-2/3 text-white rounded-sm  ${
+      className={`border   w-full text-white rounded-sm shadow-2xl  ${
         isShow ? "hide" : ""
       }`}
     >
@@ -78,7 +79,7 @@ export const ActualNote = ({
         >
           {isEditTitle ? "" : title}
         </span>
-        <ul className="flex justify-around w-12  ">
+        <ul className="flex justify-around w-12 hidden ">
           <li>
             <i className="fas fa-thumbtack   "></i>
           </li>
@@ -96,7 +97,7 @@ export const ActualNote = ({
           {isEditNote ? "" : "Take a note..."}
         </span>
       </div>
-      <div className="flex flex-col  justify-start  w-full">
+      <div className="flex mt-8  justify-start  w-full relative">
         <br />
         <input
           ref={tagRef}
@@ -107,9 +108,11 @@ export const ActualNote = ({
           placeholder="Add Tag"
         />
         <datalist id="tag"></datalist>
+        <span className="text-sm absolute right-10 bottom-0">Click Outside to save your note.</span>
       </div>
-      <div className=" flex  w-full mt-4 ">
-        <ul className="flex justify-around  w-96">
+      <div className=" flex  w-96 mt-4 justify-end ">
+     
+        <ul className="hidden justify-around  w-96">
           <li>
             <i className="far fa-bell"></i>
           </li>
@@ -135,7 +138,7 @@ export const ActualNote = ({
             <i className="fas fa-redo"></i>
           </li>
         </ul>
-        <div className="flex justify-end items-end w-1/3 px-4">
+        <div className=" justify-end items-end w-1/3 px-4 hidden">
           <button>Close</button>
         </div>
       </div>

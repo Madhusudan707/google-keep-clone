@@ -20,8 +20,8 @@ const {addNoteToArchive,addNoteToTrash} = useNotesData()
         {/* <li>
           <a><i className='fa fa-image'></i></a>
         </li> */}
-        <li>
-          <Link to="">  <i className="fas fa-pen   "></i></Link>
+        <li className="hidden ">
+          <Link to="">  <i className="fas fa-pen  "></i></Link>
         </li>
         <li>
           <Link to="" onClick={()=>{addNoteToArchive(noteID,msg)}}><i className='fa fa-archive cursor-pointer'></i></Link>

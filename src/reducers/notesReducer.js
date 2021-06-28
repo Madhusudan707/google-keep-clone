@@ -51,10 +51,10 @@ export const notesReducer = (state, action) => {
         message: "Notes Updated",
       };
 
-    case "ADD_PINNED_NOTE":
+    case "ADD_PIN_NOTE":
       return {
         loading: false,
-        notes: action.payload.pinnedNotes,
+        notes: action.payload.pinNote,
         message: "Notes Updated",
       };
 

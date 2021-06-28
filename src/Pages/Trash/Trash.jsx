@@ -10,7 +10,7 @@ import {
 } from "../../Components";
 import "../../styles/note_grid.css";
 export const Trash = () => {
-  const { notesState } = useNotesData();
+  const { notesState,pinNote } = useNotesData();
   const { isShowToast, toastMessage, toastColor } = useNotes();
 
   const isTrashTrue = notesState.notes.filter((note)=>{
@@ -28,7 +28,7 @@ export const Trash = () => {
                   className={`text-white border item  relative note hover:border-red-500 ${note.bgColor}`}
                 >
                   <Select />
-                  <Pin />
+                  <Pin onClick={()=>{pinNote(note._id)}} />
                   <h1 className="text-center">{note.title}</h1>
                   <h5 className="mb-6 mt-4">{note.note}</h5>
                   <ColorPalette noteID={note._id} />

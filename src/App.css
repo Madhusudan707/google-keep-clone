@@ -1,25 +1,43 @@
 body{
-    /* overflow: hidden; */
-    background: gray;
+    background: #343F56;
 }
 .hide{
     display:none
 }
 
 .home {
-    display: grid;
+    /* display: grid;
     grid-template-areas: 
     'navbar '
     'body';
-    grid-template-columns: 100%;
+    grid-template-columns: 100%; */
   }
 
 .navbar{
-    grid-area:navbar;
+    /* grid-area:navbar; */
    
 }
 .body,.archive{
-    width: 92%;
+    /* width: 92%;
     grid-area:body;
-    margin-left:8%;
+    margin-left:8%; */
+}
+
+body::-webkit-scrollbar-track
+{
+	
+	border-radius: 10px;
+	background-color: #343F56;
+}
+
+body::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #343F56;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #FFFFFF;
 }

@@ -10,7 +10,7 @@ import "../../styles/note_grid.css";
 export const NoteGrid = () => {
   const wrapperRef = useRef(null);
   const { isShow,setIsShow } = useOutSideAlert(wrapperRef);
-  const { notesState,updateNote,pinnedNote } = useNotesData(isShow);
+  const { notesState,updateNote,pinNote } = useNotesData(isShow);
   const {isShowToast,toastMessage,toastColor} = useNotes()
  
 
@@ -24,14 +24,14 @@ export const NoteGrid = () => {
     <div className="flex flex-col">
     <h1 className='text-white text-sm border-b '>Pinned Notes</h1>
     {notesState.notes.map((note)=>{
-      if(note.isPinned){
+      if(note.isPinned ){
         return (
           <div
             key={note._id}
             className={`text-white border item relative note mt-12  ${note.bgColor}`}
           >
             <Select />
-            <Pin onClick={()=>{pinnedNote(note._id)}} />
+            <Pin onClick={()=>{pinNote(note._id)}} />
             <span ref={wrapperRef} onClick={updateIsShow}>
               <h1
                 className="text-center focus:outline-none"
@@ -72,7 +72,7 @@ export const NoteGrid = () => {
     
     <h1 className='text-white text-sm border-b w-full '>Other</h1>
       {notesState.notes.map((note) => {
-        if (!note.isDelete && !note.isArchive || !note.isPinned) {
+        if (!note.isDelete && !note.isArchive && !note.isPinned) {
           return (
             
             
@@ -81,7 +81,7 @@ export const NoteGrid = () => {
               className={` text-white border item relative note  ${note.bgColor}`}
             >
               <Select />
-              <Pin onClick={()=>{pinnedNote(note._id)}} />
+              <Pin onClick={()=>{pinNote(note._id)}} />
               <span ref={wrapperRef} onClick={updateIsShow}>
                 <h1
                   className="text-center focus:outline-none"
@@ -110,7 +110,7 @@ export const NoteGrid = () => {
                   suppressContentEditableWarning={true} onKeyUp={(e)=>{updateNote(note,e)}} >{note.tag[0]}</span>
               </span>
               <br/> <br/>
-              {/* <ColorPalette noteID={note._id} /> */}
+              <ColorPalette noteID={note._id} />
               <Footer noteID={note._id} />
             </div>
           

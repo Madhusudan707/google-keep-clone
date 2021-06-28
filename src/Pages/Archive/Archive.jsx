@@ -3,7 +3,7 @@ import {useNotes} from "../../contexts"
 import { Footer, Select, Pin, ColorPalette,Toast,EmptyContent } from "../../Components";
 import "../../styles/note_grid.css";
 export const Archive = () => {
-  const { notesState } = useNotesData();
+  const { notesState,pinNote} = useNotesData();
   const {isShowToast,toastMessage,toastColor} = useNotes()
  
  const isArchiveTrue = notesState.notes.filter((note)=>{
@@ -23,7 +23,7 @@ export const Archive = () => {
               className={`text-white border item  relative note hover:border-red-500 ${note.bgColor}`}
             >
               <Select />
-              <Pin />
+              <Pin onClick={()=>{pinNote(note._id)}} />
               <h1 className="text-center">{note.title}</h1>
               <h5 className="mb-6 mt-4">{note.note}</h5>
               <ColorPalette noteID={note._id} />

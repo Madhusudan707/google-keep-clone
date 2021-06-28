@@ -56,7 +56,7 @@ export const useNotesData = (isShow)=>{
          const addNoteToArchive = async(noteID,msg=true)=>{
            const archiveNote = notesState.notes.map((note)=>{
              if(note._id===noteID){
-               return {...note,isArchive:!note.isArchive,isDelete:false}
+               return {...note,isArchive:!note.isArchive,isDelete:false,isPinned:false}
              }return note
            })
 
@@ -71,7 +71,7 @@ export const useNotesData = (isShow)=>{
          const addNoteToTrash = async(noteID,msg=true)=>{
           const trashNote = notesState.notes.map((note)=>{
             if(note._id===noteID){
-              return {...note,isDelete:!note.isDelete,isArchive:false}
+              return {...note,isDelete:!note.isDelete,isArchive:false,isPinned:false}
             }return note
           })
 
@@ -103,9 +103,20 @@ export const useNotesData = (isShow)=>{
             setIsNoteChange(true);
         }
 
-        const pinnedNote = async(noteID)=>{
+        const pinNote = async(noteID)=>{
+
+          const pinNote = notesState.notes.map((note)=>{
+            if(note._id===noteID){
+              return {...note,isPinned:!note.isPinned,isArchive:false,isDelete:false}
+            }return note
+          })
+          notesDispatch({type:"ADD_PIN_NOTE",payload:{pinNote:pinNote}})
          
           const response = await axios.post(`http://localhost:3002/notes/pinned/${noteID}`)
+
+
+
+          
          
           response.data.success &&  toastMsg("Note Pinned Successfully")
         }
@@ -128,6 +139,6 @@ export const useNotesData = (isShow)=>{
        
          
     return {
-        notesState,changeNoteColor,addNoteToArchive,addNoteToTrash,updateNote,pinnedNote,toastMsg
+        notesState,changeNoteColor,addNoteToArchive,addNoteToTrash,updateNote,pinNote,toastMsg
     }
 }

@@ -1,7 +1,7 @@
 export const StaticNote = ({ isShow, onClick }) => {
   return (
     <div
-      className={`flex flex-row items-center border justify-center text-white w-2/3 rounded-sm border  ${
+      className={`flex flex-row items-center border justify-center text-white w-full rounded-sm shadow-2xl  ${
         isShow ? "" : "hide"
       }`}
     >
@@ -12,7 +12,7 @@ export const StaticNote = ({ isShow, onClick }) => {
         Take a Note...
       </span>
 
-      <ul className="flex justify-around w-36">
+      <ul className=" justify-around w-36 hidden">
         <li>
           <input type="checkbox" defaultChecked=" " />
         </li>

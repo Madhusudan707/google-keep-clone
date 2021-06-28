@@ -26,7 +26,7 @@ export const TakeNote = () => {
   }, [isShow]);
 
   return (
-    <div className="flex w-2/4 justify-center mt-16" ref={wrapperRef}>
+    <div className="flex w-1/4 justify-center mt-16" ref={wrapperRef} style={{width:"500px"}}>
       <StaticNote isShow={isShow} onClick={handleSwap} />
       <ActualNote
         isShow={isShow}
