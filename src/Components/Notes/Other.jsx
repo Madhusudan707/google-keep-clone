@@ -16,8 +16,10 @@ export const Other = ({
   return (
     <div className="container">
       <h1 className="text-white text-sm border-b w-full ">Other</h1>
-      {isOtherTrue.length?notesState.notes.map((note) => {
-        if (!note.isDelete && !note.isArchive && !note.isPinned) {
+     
+      { 
+      isOtherTrue.length?isOtherTrue.map((note) => {
+      
           return (
             <div
               key={note._id}
@@ -40,7 +42,7 @@ export const Other = ({
               <Footer noteID={note._id} />
             </div>
           );
-        }
+      
       }):<span className=' text-3xl text-center text-white'>Create Some Note</span>}
     </div>
   );

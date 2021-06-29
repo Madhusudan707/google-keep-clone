@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import firebase from "firebase/app";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts";
-import axios from "axios";
+
 
 export const useLogin = () => {
   const navigate = useNavigate();
@@ -40,6 +40,7 @@ export const useLogin = () => {
           setIsUserLoggedIn(true);
           localStorage.setItem("isUserLoggedIn", true);
           localStorage.setItem("uid", response.user.uid);
+          navigate("/");
         }
       } catch (error) {
         setIsLoading(false);

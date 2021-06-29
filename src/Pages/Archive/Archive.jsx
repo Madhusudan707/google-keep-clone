@@ -4,7 +4,6 @@ import {
   Footer,
   Select,
   Pin,
-  ColorPalette,
   Toast,
   EmptyContent,
 } from "../../Components";

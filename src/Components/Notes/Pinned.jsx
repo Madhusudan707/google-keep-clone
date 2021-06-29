@@ -16,8 +16,8 @@ export const Pinned = ({
   return (
     <div className="flex flex-col">
       <h1 className="text-white text-sm border-b ">Pinned Notes</h1>
-      {isPinnedTrue.length ?notesState.notes.map((note) => {
-        if (note.isPinned) {
+      {
+      isPinnedTrue.length ?isPinnedTrue.map((note) => {
           return (
             <div
               key={note._id}
@@ -40,7 +40,7 @@ export const Pinned = ({
               <Footer noteID={note._id} />
             </div>
           );
-        }
+       
       }):<span className=' mt-24 text-3xl text-center text-white'>Nothing is Pinned</span>}
     </div>
   );

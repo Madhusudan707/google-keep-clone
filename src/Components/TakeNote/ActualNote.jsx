@@ -62,6 +62,7 @@ export const ActualNote = ({
         response.data.success && toastMsg("Note Added Successfully");
       }
     })();
+    // eslint-disable-next-line
   }, [isShow]);
 
   return (

@@ -15,21 +15,26 @@ export const useNotesData = (isShow) => {
   const [editNote, setEditNote] = useState("");
   const [editTag, setEditTag] = useState("");
   const [noteID, setNoteID] = useState("");
+  const [isNotesLoading,setIsNotesLoading] = useState(false)
 
   useEffect(() => {
+    
     (async () => {
+      setIsNotesLoading(true)
       const response = await axios.get(`http://localhost:3003/notes/${uid}`);
 
       notesDispatch({
         type: "INITIAL_DATA",
         payload: { initialData: response.data.data },
       });
-      // response.data.success && toastMsg("Note Loaded Successfully");
+      response.data.success && setIsNotesLoading(false)
     })();
+    // eslint-disable-next-line
   }, [isShow, notesDispatch, uid]);
 
   useEffect(() => {
     if (isShow && isNoteChanged) {
+   
       (async () => {
         const response = await axios.post(
           "http://localhost:3003/notes/update",
@@ -57,7 +62,9 @@ export const useNotesData = (isShow) => {
         });
         response.data.success && toastMsg("Note Updated Successfully");
       })();
+
     }
+    // eslint-disable-next-line
   }, [isShow, editNote, editTitle, isNoteChanged, noteID]);
 
   const changeNoteColor = async (noteID, bgColor) => {
@@ -197,5 +204,6 @@ export const useNotesData = (isShow) => {
     updateNote,
     pinNote,
     toastMsg,
+    isNotesLoading
   };
 };

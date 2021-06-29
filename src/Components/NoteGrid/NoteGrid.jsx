@@ -17,7 +17,7 @@ export const NoteGrid = () => {
   const wrapperRef = useRef(null);
   const { isShowToast, toastMessage, toastColor } = useNotes();
   const { isShow, setIsShow } = useOutSideAlert(wrapperRef);
-  const { notesState, updateNote, pinNote } = useNotesData(isShow);
+  const { notesState, updateNote, pinNote} = useNotesData(isShow);
 
   const updateIsShow = () => {
     setIsShow(false);
@@ -50,6 +50,7 @@ export const NoteGrid = () => {
         updateIsShow={updateIsShow}
         updateNote={updateNote}
         EditableNotes={EditableNotes}
+        
       />
      
       {isShowToast && <Toast message={toastMessage} color={toastColor} />}

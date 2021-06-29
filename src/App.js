@@ -15,7 +15,7 @@ import { useAuth } from "./contexts";
 const App = () => {
   const { isUserLoggedIn } = useAuth();
   return (
-    <div className="App" id="style-2">
+    <div className="App">
       {isUserLoggedIn && <NavBar />}
       <Routes>
         <Route path="/login" element={<Login />} />

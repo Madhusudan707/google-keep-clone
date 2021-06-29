@@ -13,7 +13,7 @@ export const Login = () => {
       <div className="h-auto lg:w-1/4 w-3/4 bg-white  rounded-lg relative text-center  lg:border lg:border-gray-300">
         <div>
           <h1 className=" lg:text-5xl text-3xl p-4 w-full  font-bold">
-            NOTE-KEEP
+            NANO NOTES
           </h1>
           <span className="text-2xl">Sign in</span>
         </div>
