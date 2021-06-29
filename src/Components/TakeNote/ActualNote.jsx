@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import axios from "axios";
-import { useNotesData } from "../../hooks";
+import { useNotesData,useBaseURL } from "../../hooks";
 import { useNotes } from "../../contexts";
 export const ActualNote = ({
   isShow,
@@ -11,6 +11,7 @@ export const ActualNote = ({
   setIsEditTitle,
   setIsEditNote,
 }) => {
+  const {baseURL} = useBaseURL()
   const titleRef = useRef();
   const noteRef = useRef();
   const tagRef = useRef();
@@ -47,7 +48,7 @@ export const ActualNote = ({
         activeNote &&
         uid
       ) {
-        const response = await axios.post("http://localhost:3003/notes", {
+        const response = await axios.post(`${baseURL}/notes`, {
           uid: uid,
           title: titleRef.current.innerText,
           note: noteRef.current.innerText,

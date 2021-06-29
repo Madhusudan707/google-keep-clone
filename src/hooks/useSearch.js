@@ -1,8 +1,10 @@
 import { useNotes } from "../contexts";
+import {useBaseURL} from "../hooks"
 import axios from "axios";
 
 export const useSearch = () => {
   const { notesState, notesDispatch } = useNotes();
+  const {baseURL} = useBaseURL()
 
   const search = async (search_string) => {
     if (search_string) {
@@ -16,7 +18,7 @@ export const useSearch = () => {
     } else {
       try {
         const uid = localStorage.getItem("uid");
-        const response = await axios.get(`http://localhost:3003/notes/${uid}`);
+        const response = await axios.get(`${baseURL}/notes/${uid}`);
 
         notesDispatch({
           type: "INITIAL_DATA",

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNotes } from "../contexts";
+import {useBaseURL} from "../hooks"
 import axios from "axios";
 export const useNotesData = (isShow) => {
   const {
@@ -9,6 +10,7 @@ export const useNotesData = (isShow) => {
     setToastMessage,
     setToastColor,
   } = useNotes();
+  const {baseURL} = useBaseURL()
   const uid = localStorage.getItem("uid");
   const [isNoteChanged, setIsNoteChange] = useState(false);
   const [editTitle, setEditTitle] = useState("");
@@ -20,14 +22,14 @@ export const useNotesData = (isShow) => {
   useEffect(() => {
     
     (async () => {
-      setIsNotesLoading(true)
-      const response = await axios.get(`http://localhost:3003/notes/${uid}`);
+      // setIsNotesLoading(true)
+      const response = await axios.get(`${baseURL}/notes/${uid}`);
 
       notesDispatch({
         type: "INITIAL_DATA",
         payload: { initialData: response.data.data },
       });
-      response.data.success && setIsNotesLoading(false)
+      // response.data.success && setIsNotesLoading(false)
     })();
     // eslint-disable-next-line
   }, [isShow, notesDispatch, uid]);
@@ -37,7 +39,7 @@ export const useNotesData = (isShow) => {
    
       (async () => {
         const response = await axios.post(
-          "http://localhost:3003/notes/update",
+          `${baseURL}/notes/update`,
           {
             id: noteID,
             updatedTitle: editTitle,
@@ -79,7 +81,7 @@ export const useNotesData = (isShow) => {
       payload: { updateColor: updatedNotes },
     });
     const response = await axios.post(
-      "http://localhost:3003/notes/change-color",
+      `${baseURL}/notes/change-color`,
       { id: noteID, bgColor: bgColor }
     );
     response.data.success && toastMsg("Note Color Updated Successfully");
@@ -102,7 +104,7 @@ export const useNotesData = (isShow) => {
       type: "ADD_NOTE_TO_ARCHIVE",
       payload: { archiveNote: archiveNote },
     });
-    const response = await axios.post("http://localhost:3003/notes/archive", {
+    const response = await axios.post(`${baseURL}/notes/archive`, {
       id: noteID,
     });
 
@@ -129,7 +131,7 @@ export const useNotesData = (isShow) => {
       type: "ADD_NOTE_TO_TRASH",
       payload: { trashNote: trashNote },
     });
-    const response = await axios.post("http://localhost:3003/notes/trash", {
+    const response = await axios.post(`${baseURL}/notes/trash`, {
       id: noteID,
     });
     const trashMsg = msg ? "Note Moved To Trash" : "Note Moved to Notes";
@@ -173,7 +175,7 @@ export const useNotesData = (isShow) => {
     notesDispatch({ type: "ADD_PIN_NOTE", payload: { pinNote: pinNote } });
 
     const response = await axios.post(
-      `http://localhost:3003/notes/pinned/${noteID}`
+      `${baseURL}/notes/pinned/${noteID}`
     );
 
     const pinMsg = msg

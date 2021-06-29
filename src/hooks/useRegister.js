@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import firebase from "firebase/app";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts";
+import {useBaseURL} from "../hooks"
 import axios from "axios";
 
 export const useRegister = (validate) => {
   const navigate = useNavigate();
+  const {baseURL} = useBaseURL
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({
     email: "",
@@ -42,7 +44,7 @@ export const useRegister = (validate) => {
         setIsUserLoggedIn(true);
         localStorage.setItem("isUserLoggedIn", true);
         localStorage.setItem("uid", response.user.uid);
-        await axios.post("http://localhost:3003/users", {
+        await axios.post(`${baseURL}/users`, {
           uid: response.user.uid,
           email: values.email,
         });

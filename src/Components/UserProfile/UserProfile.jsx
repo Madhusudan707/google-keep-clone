@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
+import { useBaseURL } from "../../hooks";
 import axios from "axios";
 
 export const UserProfile = () => {
   const [userProfile, setUserProfile] = useState();
+  const {baseURL} = useBaseURL()
 
   useEffect(() => {
     (async () => {
       const uid = localStorage.getItem("uid");
-      const response = await axios.get(`http://localhost:3003/users/${uid}`);
+      const response = await axios.get(`${baseURL}/users/${uid}`);
 
       setUserProfile(response.data.user.email);
     })();
