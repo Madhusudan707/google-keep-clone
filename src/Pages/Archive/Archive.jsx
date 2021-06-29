@@ -32,12 +32,11 @@ export const Archive = () => {
                   <Select />
                   <Pin
                     onClick={() => {
-                      pinNote(note._id);
+                      pinNote(note._id,true);
                     }}
                   />
                   <h1 className="text-center">{note.title}</h1>
                   <h5 className="mb-6 mt-4">{note.note}</h5>
-                  <ColorPalette noteID={note._id} />
                   <Footer noteID={note._id} msg={false} />
                 </div>
               )

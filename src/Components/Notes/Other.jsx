@@ -10,20 +10,23 @@ export const Other = ({
   updateNote,
   EditableNotes,
 }) => {
+  const isOtherTrue = notesState.notes.filter((note) => {
+    return (!note.isPinned && !note.isArchive &&!note.isDelete);
+  });
   return (
     <div className="container">
       <h1 className="text-white text-sm border-b w-full ">Other</h1>
-      {notesState.notes.map((note) => {
+      {isOtherTrue.length?notesState.notes.map((note) => {
         if (!note.isDelete && !note.isArchive && !note.isPinned) {
           return (
             <div
               key={note._id}
-              className={` text-white border item relative note  ${note.bgColor}`}
+              className={` text-white border item relative note mt-8  ${note.bgColor}`}
             >
               <Select />
               <Pin
                 onClick={() => {
-                  pinNote(note._id);
+                  pinNote(note._id,true);
                 }}
               />
               <EditableNotes
@@ -38,7 +41,7 @@ export const Other = ({
             </div>
           );
         }
-      })}
+      }):<span className=' text-3xl text-center text-white'>Create Some Note</span>}
     </div>
   );
 };

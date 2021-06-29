@@ -1,0 +1,256 @@
+[{
+  "_id": {
+    "$oid": "60d94ef130f072170d9025c9"
+  },
+  "tag": [
+    "Execution Context"
+  ],
+  "bgColor": "bg-green-500",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Execution Context",
+  "note": "I am Execution Context",
+  "createdAt": {
+    "$date": "2021-06-28T04:24:17.401Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d94f0930f072170d9025cd"
+  },
+  "tag": [
+    "Async"
+  ],
+  "bgColor": "bg-blue-800",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Async",
+  "note": "I am Async",
+  "createdAt": {
+    "$date": "2021-06-28T04:24:41.492Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d94f1e30f072170d9025d1"
+  },
+  "tag": [
+    "Hoisting"
+  ],
+  "bgColor": "bg-pink-500",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Hoisting",
+  "note": "I am Hoisting",
+  "createdAt": {
+    "$date": "2021-06-28T04:25:02.488Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d94f3430f072170d9025d5"
+  },
+  "tag": [
+    "Closure"
+  ],
+  "bgColor": "bg-yellow-500",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Closure",
+  "note": "I am Closure",
+  "createdAt": {
+    "$date": "2021-06-28T04:25:24.344Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d94f4930f072170d9025d9"
+  },
+  "tag": [
+    "Await"
+  ],
+  "bgColor": "bg-yellow-500",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Await",
+  "note": "I am Await",
+  "createdAt": {
+    "$date": "2021-06-28T04:25:45.932Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d94f5d30f072170d9025dd"
+  },
+  "tag": [
+    "Title"
+  ],
+  "bgColor": "bg-purple-500",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Promise",
+  "note": "I am Promise",
+  "createdAt": {
+    "$date": "2021-06-28T04:26:05.267Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d94f9630f072170d9025e1"
+  },
+  "tag": [
+    "Event-Loop"
+  ],
+  "bgColor": "bg-yellow-600",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Event-Loop",
+  "note": "I am Event-Loop",
+  "createdAt": {
+    "$date": "2021-06-28T04:27:02.619Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d94fb830f072170d9025e5"
+  },
+  "tag": [
+    "Call-Stack"
+  ],
+  "bgColor": "bg-green-500",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Call-Stack",
+  "note": "I am Call-Stack",
+  "createdAt": {
+    "$date": "2021-06-28T04:27:36.649Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d94fe630f072170d9025ef"
+  },
+  "tag": [
+    "Callback"
+  ],
+  "bgColor": "bg-blue-800",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Callback",
+  "note": "I am Callback",
+  "createdAt": {
+    "$date": "2021-06-28T04:28:22.603Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d94fff30f072170d9025f3"
+  },
+  "tag": [
+    "Lexical Scope"
+  ],
+  "bgColor": "bg-red-500",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Lexical Scope",
+  "note": "I am Lexical Scope",
+  "createdAt": {
+    "$date": "2021-06-28T04:28:47.510Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d9502330f072170d9025f7"
+  },
+  "tag": [
+    "Let, Const, Var"
+  ],
+  "bgColor": "bg-pink-500",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Let, Const, Var",
+  "note": "I am Let, Const, Var",
+  "createdAt": {
+    "$date": "2021-06-28T04:29:23.081Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d9504730f072170d9025fb"
+  },
+  "tag": [
+    "Temporal Dead Zone"
+  ],
+  "bgColor": "bg-blue-500",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Temporal Dead Zone",
+  "note": "I am Temporal Dead Zone.",
+  "createdAt": {
+    "$date": "2021-06-28T04:29:59.020Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d9506230f072170d9025ff"
+  },
+  "tag": [
+    "Map"
+  ],
+  "bgColor": "bg-transparent",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Map",
+  "note": "I am Map",
+  "createdAt": {
+    "$date": "2021-06-28T04:30:26.849Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d9506d30f072170d902603"
+  },
+  "tag": [
+    "Filter"
+  ],
+  "bgColor": "bg-gray-500",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Filter",
+  "note": "I am Filter",
+  "createdAt": {
+    "$date": "2021-06-28T04:30:37.430Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d9508030f072170d902607"
+  },
+  "tag": [
+    "Reducer"
+  ],
+  "bgColor": "bg-green-300",
+  "isArchive": false,
+  "isDelete": false,
+  "isPinned": false,
+  "uid": "rfNX9OmAncRIwYAEi6hfvw8t1mF3",
+  "title": "Reducer",
+  "note": "I am Reducer",
+  "createdAt": {
+    "$date": "2021-06-28T04:30:56.376Z"
+  }
+}]

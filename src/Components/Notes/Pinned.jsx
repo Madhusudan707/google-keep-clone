@@ -8,12 +8,15 @@ export const Pinned = ({
   pinNote,
   updateIsShow,
   updateNote,
-  EditableNotes,
+  EditableNotes
 }) => {
+  const isPinnedTrue = notesState.notes.filter((note) => {
+    return note.isPinned;
+  });
   return (
     <div className="flex flex-col">
       <h1 className="text-white text-sm border-b ">Pinned Notes</h1>
-      {notesState.notes.map((note) => {
+      {isPinnedTrue.length ?notesState.notes.map((note) => {
         if (note.isPinned) {
           return (
             <div
@@ -38,7 +41,7 @@ export const Pinned = ({
             </div>
           );
         }
-      })}
+      }):<span className=' mt-24 text-3xl text-center text-white'>Nothing is Pinned</span>}
     </div>
   );
 };

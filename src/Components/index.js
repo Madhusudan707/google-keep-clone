@@ -11,3 +11,4 @@ export { EmptyContent } from "./EmptyContent/EmptyContent";
 export { Pinned } from "./Notes/Pinned";
 export { Other } from "./Notes/Other";
 export { EditableNotes } from "./EditableNotes/EditableNotes";
+export { UserProfile } from "./UserProfile/UserProfile";

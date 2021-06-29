@@ -6,7 +6,7 @@ import {
   Toast,
   Pinned,
   Other,
-  EditableNotes,
+  EditableNotes
 } from "../";
 import { useNotes } from "../../contexts";
 import { useNotesData, useOutSideAlert } from "../../hooks";
@@ -24,6 +24,8 @@ export const NoteGrid = () => {
   };
 
   return (
+    <>
+    {notesState.notes.length?
     <>
       <Pinned
         wrapperRef={wrapperRef}
@@ -49,7 +51,10 @@ export const NoteGrid = () => {
         updateNote={updateNote}
         EditableNotes={EditableNotes}
       />
+     
       {isShowToast && <Toast message={toastMessage} color={toastColor} />}
+      </>
+    :<span className="flex items-center justify-center text-white text-3xl h-96">Create Note To view</span>}
     </>
   );
 };

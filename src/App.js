@@ -7,7 +7,7 @@ import {
   PrivateRoute,
   PageNotFound,
 } from "./Pages";
-import { NavBar, SideNav } from "./Components";
+import { NavBar} from "./Components";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { useAuth } from "./contexts";

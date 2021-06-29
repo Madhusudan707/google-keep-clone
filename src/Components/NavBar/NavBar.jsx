@@ -1,4 +1,4 @@
-import { Search } from "../";
+import { Search,UserProfile } from "../";
 import { Link } from "react-router-dom";
 import { useLogout } from "../../hooks";
 
@@ -29,7 +29,7 @@ export const NavBar = () => {
         <Search />
         <ul className="flex justify-around items-center w-96 ml-16">
           <li>
-            <i className="fas fa-user-circle fa-2x"></i>
+           <a href="#user_profile"> <i className="fas fa-user-circle fa-2x"></i></a>
           </li>
           <li>
             <Link to="/" onClick={logout}>
@@ -38,6 +38,7 @@ export const NavBar = () => {
           </li>
         </ul>
       </div>
+      <UserProfile/>
     </div>
   );
 };

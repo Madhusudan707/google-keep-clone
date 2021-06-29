@@ -1,4 +1,3 @@
-import { ColorPalette } from "../";
 import { useNotesData } from "../../hooks";
 import { Link } from "react-router-dom";
 

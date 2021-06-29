@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import firebase from "firebase/app";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts";
+import axios from "axios";
 
 export const useLogin = () => {
   const navigate = useNavigate();
@@ -40,8 +41,6 @@ export const useLogin = () => {
           localStorage.setItem("isUserLoggedIn", true);
           localStorage.setItem("uid", response.user.uid);
         }
-        console.log(response);
-        console.log(response.user.uid);
       } catch (error) {
         setIsLoading(false);
         setFirebaseServerError(error.message);

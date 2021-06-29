@@ -9,7 +9,7 @@ export const Search = () => {
         <input
           type="search"
           placeholder="Search"
-          className="focus:outline-none text-white   p-2  w-full rounded-sm"
+          className="focus:outline-none text-white   p-2  w-full rounded-sm flex justify-center"
           onChange={(e) => {
             search(e.target.value);
           }}

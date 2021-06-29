@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import firebase from "firebase/app";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts";
+import axios from "axios";
 
 export const useRegister = (validate) => {
   const navigate = useNavigate();
@@ -40,6 +41,11 @@ export const useRegister = (validate) => {
         setIsLoading(false);
         setIsUserLoggedIn(true);
         localStorage.setItem("isUserLoggedIn", true);
+        localStorage.setItem("uid", response.user.uid);
+        await axios.post("http://localhost:3003/users", {
+          uid: response.user.uid,
+          email: values.email,
+        });
         navigate("/");
       }
     } catch (error) {

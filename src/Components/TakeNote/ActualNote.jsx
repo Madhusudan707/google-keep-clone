@@ -2,7 +2,6 @@ import { useRef, useEffect, useState } from "react";
 import axios from "axios";
 import { useNotesData } from "../../hooks";
 import { useNotes } from "../../contexts";
-import { Footer } from "../";
 export const ActualNote = ({
   isShow,
   isEditTitle,
@@ -48,7 +47,7 @@ export const ActualNote = ({
         activeNote &&
         uid
       ) {
-        const response = await axios.post("http://localhost:3002/notes", {
+        const response = await axios.post("http://localhost:3003/notes", {
           uid: uid,
           title: titleRef.current.innerText,
           note: noteRef.current.innerText,
