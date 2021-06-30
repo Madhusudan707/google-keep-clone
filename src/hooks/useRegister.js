@@ -7,7 +7,7 @@ import axios from "axios";
 
 export const useRegister = (validate) => {
   const navigate = useNavigate();
-  const {baseURL} = useBaseURL
+  const {baseURL} = useBaseURL()
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({
     email: "",
@@ -44,11 +44,13 @@ export const useRegister = (validate) => {
         setIsUserLoggedIn(true);
         localStorage.setItem("isUserLoggedIn", true);
         localStorage.setItem("uid", response.user.uid);
-        await axios.post(`${baseURL}/users`, {
+      const responseReg=  await axios.post(`${baseURL}/users`, {
           uid: response.user.uid,
           email: values.email,
         });
-        navigate("/");
+
+        responseReg.data.success &&  navigate("/")
+       
       }
     } catch (error) {
       setIsLoading(false);

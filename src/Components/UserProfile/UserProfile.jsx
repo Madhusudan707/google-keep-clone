@@ -11,7 +11,8 @@ export const UserProfile = () => {
       const uid = localStorage.getItem("uid");
       const response = await axios.get(`${baseURL}/users/${uid}`);
 
-      setUserProfile(response.data.user.email);
+      response.data.success &&  setUserProfile(response.data.user.email);
+     
     })();
   }, []);
 
