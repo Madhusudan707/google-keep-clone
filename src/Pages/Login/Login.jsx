@@ -15,6 +15,7 @@ export const Login = () => {
           <h1 className=" lg:text-5xl text-3xl p-4 w-full  font-bold">
             NANO NOTES
           </h1>
+         <div className='flex items-center justify-center w-full'><img src='icon-192x192.png' className='w-24 h-24' alt='logo'/></div> 
           <span className="text-2xl">Sign in</span>
         </div>
         <div className="text-red-500 mt-8">
