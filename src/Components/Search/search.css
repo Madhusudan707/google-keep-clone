@@ -1,0 +1,13 @@
+@media screen and (max-width:441px){
+    .search-lg{
+        display:none
+    }
+    
+}
+
+@media screen and (min-width:441px){
+    .search-sm{
+        display:none
+    }
+    
+}

@@ -17,14 +17,15 @@ export const Trash = () => {
   });
   return (
     <>
-      <div className="body container    flex items-center justify-start ">
+       <div className="body containerx flex w-full p-2 mt-16">
+       <div className='flex flex-wrap w-full item-center lg:justify-start justify-center'>
         {isTrashTrue.length ? (
           notesState.notes.map((note) => {
             return (
               note.isDelete && (
                 <div
                   key={note._id}
-                  className={`text-white border item  relative note hover:border-red-500 ${note.bgColor}`}
+                  className={`text-white border w-64 h-44 p-4  itemx relative note mt-8 ml-4 ${note.bgColor}`}
                 >
                   <Select />
                   <Pin
@@ -42,7 +43,7 @@ export const Trash = () => {
           })
         ) : (
           <EmptyContent message="Trash is Empty" />
-        )}
+        )}</div>
       </div>
       {isShowToast && <Toast message={toastMessage} color={toastColor} />}
     </>

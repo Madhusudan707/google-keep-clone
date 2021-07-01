@@ -1,7 +1,7 @@
 export const StaticNote = ({ isShow, onClick }) => {
   return (
     <div
-      className={`flex flex-row items-center border justify-center text-white w-full rounded-sm shadow-2xl  ${
+      className={`flex flex-row items-center border justify-center text-white lg:w-full w-96 lg:ml-0  rounded-sm shadow-2xl  ${
         isShow ? "" : "hide"
       }`}
     >

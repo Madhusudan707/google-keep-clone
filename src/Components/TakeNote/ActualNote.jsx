@@ -68,7 +68,7 @@ export const ActualNote = ({
 
   return (
     <div
-      className={`border   w-full text-white rounded-sm shadow-2xl  ${
+      className={`border   w-full text-white lg:ml-0 m-8 rounded-sm shadow-2xl  ${
         isShow ? "hide" : ""
       }`}
     >
@@ -99,14 +99,14 @@ export const ActualNote = ({
       <div className="flex mt-8  justify-start  w-full relative pb-4">
         <input
           ref={tagRef}
-          className="text-black w-36 ml-4 text-center focus:outline-none border"
+          className="text-black w-36 ml-4 mb-4  text-center focus:outline-none border"
           list="tag"
           name="tag"
           id="tag"
           placeholder="Add Tag"
         />
         <datalist id="tag"></datalist>
-        <span className="text-sm absolute right-10 bottom-4">
+        <span className="text-sm absolute lg:left-44  lg:bottom-7 bottom-0  left-4 mb-2">
           Click Outside to save your note.
         </span>
       </div>

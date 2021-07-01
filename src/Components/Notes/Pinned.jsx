@@ -14,14 +14,18 @@ export const Pinned = ({
     return note.isPinned;
   });
   return (
-    <div className="flex flex-col">
-      <h1 className="text-white text-sm border-b ">Pinned Notes</h1>
+    <div className="containerx flex w-full p-2 ">
+      <div className="flex flex-col w-full">
+      <div className='w-full'>
+            <h1 className="text-white text-sm border-b w-full ">Pinned Notes</h1>
+        </div>
+        <div className='flex flex-wrap w-full item-center lg:justify-start justify-center '>
       {
       isPinnedTrue.length ?isPinnedTrue.map((note) => {
           return (
             <div
               key={note._id}
-              className={`text-white border item relative note mt-12  ${note.bgColor}`}
+              className={`text-white border w-64 h-44 p-4  itemx relative note mt-8 mb-8 ml-4  ${note.bgColor}`}
             >
               <Select />
               <Pin
@@ -41,7 +45,8 @@ export const Pinned = ({
             </div>
           );
        
-      }):<span className=' mt-24 text-3xl text-center text-white'>Nothing is Pinned</span>}
+      }):<span className='flex items-center justify-center h-24 p-24 w-full lg:text-3xl text-white'>Nothing is Pinned</span>}</div>
+    </div>
     </div>
   );
 };
