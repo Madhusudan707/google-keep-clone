@@ -62,10 +62,18 @@
   order: 2;
 }
 
-.note:hover>div {
+/* .note:hover>div {
   opacity: 1;
 }
 
 .note>div {
   opacity: 0;
+} */
+
+/* .color-palette-icon:hover + .color-palette {
+  opacity: 1;
 }
+
+.color-palette {
+  opacity: 0;
+} */

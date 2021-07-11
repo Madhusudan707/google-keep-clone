@@ -25,7 +25,7 @@ export const Pinned = ({
           return (
             <div
               key={note._id}
-              className={`text-white border w-64 h-44 p-4  itemx relative note mt-8 mb-8 ml-4  ${note.bgColor}`}
+              className={`text-white border w-64 h-44 p-4  itemx relative mt-8 mb-8 ml-4  ${note.bgColor}`}
             >
               <Select />
               <Pin
@@ -40,7 +40,11 @@ export const Pinned = ({
                 note={note}
               />
               <br /> <br />
+
               <ColorPalette noteID={note._id} />
+            
+            
+        
               <Footer noteID={note._id} />
             </div>
           );

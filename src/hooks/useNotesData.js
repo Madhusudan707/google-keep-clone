@@ -20,17 +20,16 @@ export const useNotesData = (isShow) => {
   const [isNotesLoading,setIsNotesLoading] = useState(false)
 
   useEffect(() => {
-    
-    (async () => {
-      // setIsNotesLoading(true)
+    (async()=>{
       const response = await axios.get(`${baseURL}/notes/${uid}`);
 
       notesDispatch({
         type: "INITIAL_DATA",
         payload: { initialData: response.data.data },
       });
-      // response.data.success && setIsNotesLoading(false)
-    })();
+    })()
+      
+
     // eslint-disable-next-line
   }, [isShow, notesDispatch, uid]);
 
@@ -206,6 +205,7 @@ export const useNotesData = (isShow) => {
     updateNote,
     pinNote,
     toastMsg,
-    isNotesLoading
+    isNotesLoading,
+    setIsNotesLoading
   };
 };

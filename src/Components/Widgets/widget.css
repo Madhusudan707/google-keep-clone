@@ -48,13 +48,13 @@
   opacity: 1;
 }
 
-.color-palette-icon:hover>.color-palette {
+/* .color-palette-icon:hover + .color-palette {
   opacity: 1;
 }
 
 .color-palette {
   opacity: 0;
-}
+} */
 
 /* 
   .color-palette-icon:hover + .color-palette{

@@ -8,6 +8,7 @@ export const NotesProvider = ({ children }) => {
   const [isShowToast, setIsShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [toastColor, setToastColor] = useState("");
+  const [showColorPalette,setShowColorPalette] = useState("")
 
   return (
     <NotesContext.Provider
@@ -20,6 +21,8 @@ export const NotesProvider = ({ children }) => {
         setToastMessage,
         toastColor,
         setToastColor,
+        showColorPalette,
+        setShowColorPalette
       }}
     >
       {children}

@@ -14,6 +14,7 @@ export const UserProfile = () => {
       response.data.success &&  setUserProfile(response.data.user.email);
      
     })();
+    // eslint-disable-next-line
   }, []);
 
   return (
