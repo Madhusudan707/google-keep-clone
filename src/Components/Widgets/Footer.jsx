@@ -1,17 +1,26 @@
 import { useNotesData } from "../../hooks";
 import { Link } from "react-router-dom";
-import {useNotes} from '../../contexts'
+import { useNotes } from "../../contexts";
 
 export const Footer = ({ noteID, msg }) => {
   const { addNoteToArchive, addNoteToTrash } = useNotesData();
-  const { showColorPalette,setShowColorPalette} = useNotes()
-  console.log(showColorPalette)
+  const { showColorPalette, setShowColorPalette } = useNotes();
+
+  const colorPalette = (noteID) => {
+    showColorPalette===noteID ? setShowColorPalette(""):setShowColorPalette(noteID)
+  };
+
   return (
     <div className="absolute bottom-1 w-full left-0 widget ">
       <ul className="text-white flex justify-around items-center w-full ">
         <li className="relative ">
           <Link to="">
-            <i className="fas fa-palette  cursor-pointer" onClick={()=>{setShowColorPalette(noteID)}}></i>
+            <i
+              className="fas fa-palette  cursor-pointer"
+              onClick={() => {
+                colorPalette(noteID);
+              }}
+            ></i>
           </Link>
         </li>
         <li className="hidden ">
