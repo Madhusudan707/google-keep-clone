@@ -52,11 +52,11 @@ export const Login = () => {
             </label>
           </div>
 
-          <div className="flex justify-center mt-4 w-full">
+          {/* <div className="flex justify-center mt-4 w-full">
             <a href="!#" className=" text-1xl hover:text-blue-500">
               Forget Password?
             </a>
-          </div>
+          </div> */}
           <div className="flex justify-center mt-16 mb-8 w-full">
             <button
               className="text-2xl p-4 bg-blue-500 lg:w-96 w-72 text-white focus:outline-none focus:bg-gray-500"
