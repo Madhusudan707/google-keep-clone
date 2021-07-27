@@ -7,8 +7,8 @@ import { useAuth } from "../contexts";
 export const useLogin = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("mad@gmail.com");
+  const [password, setPassword] = useState("12345678");
   const [errorMsg, setErrorMsg] = useState("");
   const [firebaseServerError, setFirebaseServerError] = useState("");
   const { setUser, setIsLoading, setIsUserLoggedIn, isLoading } = useAuth();

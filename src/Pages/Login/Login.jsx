@@ -29,6 +29,7 @@ export const Login = () => {
               <input
                 type="email"
                 className="text-black border p-2 py-4 lg:w-96 w-80 focus:outline-none focus:border-blue-500"
+                defaultValue="mad@gmail.com"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -41,6 +42,7 @@ export const Login = () => {
             <label>
               <input
                 type="password"
+                defaultValue="12345678"
                 className="border text-black  p-2 py-4 lg:w-96 w-80 focus:outline-none focus:border-blue-500"
                 onChange={(e) => {
                   setPassword(e.target.value);

@@ -178,8 +178,8 @@ export const useNotesData = (isShow) => {
     );
 
     const pinMsg = msg
-      ? "Note Pin Successfully"
-      : "Note Unpin Successfully";
+      ? "Note Pinned Successfully"
+      : "Note Unpinned Successfully";
 
     response.data.success && toastMsg(pinMsg);
   };

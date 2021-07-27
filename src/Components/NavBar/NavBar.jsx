@@ -30,9 +30,9 @@ export const NavBar = () => {
         </ul>
         <Search />
         <ul className="flex justify-around items-center lg:w-96 w-full lg:ml-16 ml-4">
-          <li>
+          {/* <li>
            <a href="#user_profile"> <i className="fas fa-user-circle lg:fa-2x fa-2x"></i></a>
-          </li>
+          </li> */}
           <li>
             <Link to="/" onClick={logout}>
               <i className="fas fa-sign-out-alt  lg:fa-2x fa-2x"></i>
